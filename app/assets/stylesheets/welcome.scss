@@ -115,6 +115,19 @@ p.news_footer_content {
   margin-top: -2px;
 }
 
+.menu_center form {
+  text-align: center;
+}
+
+.menu_center form input {
+  margin-bottom: 5px;
+  width: 70%;
+  height: 20px;
+}
+
+.menu_center div {
+}
+
 .menu_center ul {
   margin:0;
   padding-left: 50px;
@@ -146,3 +159,31 @@ p.news_footer_content {
   margin-top: -5px;
   margin-left: -2px;
 }
+
+div#sign_in input{
+  background-color: #8f6350;
+  border-radius: 15px;
+  width: 40%;
+  height: 25px;
+}
+
+div#sign_in input:hover {
+  background-color: #fed79b;
+}
+
+div#sign_up {
+  text-align: center;
+}
+
+div#sign_up button{
+  background-color: #8f6350;
+  border-radius: 15px;
+  margin-bottom: 50px;
+  width: 40%;
+  height: 25px;
+}
+
+div#sign_up button:hover {
+  background-color: #fed79b;
+}
+

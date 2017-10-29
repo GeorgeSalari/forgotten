@@ -1,7 +1,19 @@
 <div class='full_page'>
   <div id='left_menu' class='menu'>
-    <div class="menu_top"></div>
 
+    <div class="menu_top"></div>
+    <div class="menu_center">
+      <h2> Регистрация или Вход</h2>
+      <%= form_for @user do |f| %>
+        <div><%= f.text_field :nick_name, {placeholder: "Введите логин"} %></div>
+        <div><%= f.password_field :password, {placeholder: "Введите пароль"}%></div>
+        <div id="sign_in"><%= f.submit "Войти" %></div>
+      <% end %>
+      <div id="sign_up"><%= button_tag "Регистрация" %></div>
+    </div>
+    <div class='menu_footer'></div>
+
+    <div class="menu_top"></div>
     <div class="menu_center">
       <h2>Меню</h2>
       <ul>
@@ -10,7 +22,9 @@
         <li><a href="#">Форум</a></li>
       </ul>
     </div>
+    <div class='menu_footer'></div>
 
+    <div class="menu_top"></div>
     <div class="menu_center">
       <h2>О клане</h2>
       <ul>
@@ -20,8 +34,8 @@
         <li><a href="#">Легенда</a></li>
       </ul>
     </div>
-
     <div class='menu_footer'></div>
+
   </div>
   <div id='news'>
     <% 10.times do %>
