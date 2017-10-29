@@ -9,6 +9,65 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class='full_page'>
+      <div id='left_menu' class='menu'>
+
+        <div class="menu_top"></div>
+        <div class="menu_center">
+          <h2> Регистрация или Вход</h2>
+          <%= form_for(:user, :url => url_for(:controller => "users", :action => "create")) do |f| %>
+            <div><%= f.text_field :nick_name, {placeholder: "Введите логин"} %></div>
+            <div><%= f.password_field :password, {placeholder: "Введите пароль"}%></div>
+            <div id="sign_in"><%= f.submit "Войти" %></div>
+          <% end %>
+          <div id="sign_up"><%= button_to "Регистрация", new_user_path, :method => "get" %></div>
+        </div>
+        <div class='menu_footer'></div>
+
+        <div class="menu_top"></div>
+        <div class="menu_center">
+          <h2>Меню</h2>
+          <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="#">Состав</a></li>
+            <li><a href="#">Форум</a></li>
+          </ul>
+        </div>
+        <div class='menu_footer'></div>
+
+        <div class="menu_top"></div>
+        <div class="menu_center">
+          <h2>О клане</h2>
+          <ul>
+            <li><a href="#">Новичку</a></li>
+            <li><a href="#">Вступление</a></li>
+            <li><a href="#">Устав</a></li>
+            <li><a href="#">Легенда</a></li>
+          </ul>
+        </div>
+        <div class='menu_footer'></div>
+
+      </div>
+      <div id='news'>
+        <%= yield %>
+        <div id='newsFooter'>
+
+        </div>
+      </div>
+      <div id='right_menu' class='menu'>
+        <div class="menu_top"></div>
+        <div class="menu_center">
+          <h2>Ресурсы клана</h2>
+          <ul>
+            <li><a href="#">Примерочная</a></li>
+            <li><a href="#">Таймер заклятий</a></li>
+            <li><a href="#">Таблица опыта</a></li>
+          </ul>
+        </div>
+        <div class='menu_footer'></div>
+      </div>
+    </div>
+
   </body>
 </html>

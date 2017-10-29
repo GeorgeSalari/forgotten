@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 20171029104615) do
     t.string "first_name"
     t.string "last_name"
     t.string "nick_name"
-    t.integer "role"
+    t.integer "role", default: 0
     t.string "email"
     t.string "password_digest"
     t.string "gender"
     t.date "birthday"
     t.string "profile_photo"
+    t.string "player_link"
+    t.boolean "email_confirmation", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
