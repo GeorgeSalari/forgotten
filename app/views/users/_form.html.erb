@@ -8,6 +8,30 @@
 </div>
 <div class="new_user_form_part" >
   <p>
+    <%= form.label "Фамилия:" %>
+  </p>
+  <div>
+    <%= form.text_field :last_name %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
+    <%= form.label "Пол:" %>
+  </p>
+  <div>
+    <%= form.select :gender, "<option></option><option>Мужской</option><option>Женский</option>".html_safe %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
+    <%= form.label "День рождения:" %>
+  </p>
+  <div>
+    <%= form.date_field :birthday %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
     <span>*</span><%= form.label "Ник в арене(логин):"%>
   </p>
   <div>

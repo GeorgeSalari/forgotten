@@ -17,6 +17,7 @@
 
 
 .new_user_form_part div input{
+  border-radius: 5px;
   width: 85%;
   height: 30px;
   font-size: 16px;
@@ -47,4 +48,15 @@ div.submit_button input:focus {
 
 span {
   color: #8f6350;
+}
+
+#user_gender {
+  height: 35px;
+  width: 88%;
+  border-style: inset;
+  border-top:2px solid #9a9a9a;
+  border-left:2px solid #9a9a9a;
+  border-right:2px solid #EEEEEE;
+  border-bottom:2px solid #EEEEEE;
+  font-size: 20px;
 }
