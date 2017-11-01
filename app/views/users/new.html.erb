@@ -1,51 +1,11 @@
 <div class="news_content">
   <h1>Регистрация нового пользователя</h1>
 
-  <%= form_for @user do |f| %>
-    <div class="new_user_form_part" >
-      <p>
-        <%= f.label "Имя:" %>
-      </p>
-      <div>
-        <%= f.text_field :first_name %>
-      </div>
-    </div>
-    <div class="new_user_form_part" >
-      <p>
-        <%= f.label "Ник в арене:"%>
-      </p>
-      <div>
-        <%= f.text_field :nick_name %>
-      </div>
-    </div>
-    <div class="new_user_form_part" >
-      <p>
-        <%= f.label "Ссылка на персонаж:"%>
-      </p>
-      <div>
-        <%= f.text_field :player_link %>
-      </div>
-    </div>
-    <div class="new_user_form_part" >
-      <p>
-        <%= f.label "E-mail:" %>
-      </p>
-      <div>
-        <%= f.email_field :email %>
-      </div>
-    </div>
-    <div class="new_user_form_part" >
-      <p>
-        <%= f.label "Пароль:" %>
-      </p>
-      <div>
-        <%= f.password_field :password %>
-      </div>
-    </div>
+  <%= form_for @user do |form| %>
+    <%= render partial: 'users/form', object: form %>
     <div class="submit_button">
-      <%= f.submit "Регистрация" %>
+      <%= form.submit "Регистрация" %>
     </div>
   <% end %>
-
   <div class='separator'></div>
 </div>

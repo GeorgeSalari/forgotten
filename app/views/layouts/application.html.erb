@@ -3,25 +3,45 @@
   <head>
     <title>Forgotten</title>
     <%= csrf_meta_tags %>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous">
+    </script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
+    <% if !flash.empty? %>
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="<%= key %>"><%= value %><button class="close">×</button></div>
+        <% end %>
+      </div>
+    <% end %>
     <div class='full_page'>
       <div id='left_menu' class='menu'>
 
         <div class="menu_top"></div>
         <div class="menu_center">
-          <h2> Регистрация или Вход</h2>
-          <%= form_for(:user, :url => url_for(:controller => "users", :action => "create")) do |f| %>
-            <div><%= f.text_field :nick_name, {placeholder: "Введите логин"} %></div>
-            <div><%= f.password_field :password, {placeholder: "Введите пароль"}%></div>
-            <div id="sign_in"><%= f.submit "Войти" %></div>
+          <% if logged_in? %>
+            <h2>Привет <%= current_user.nick_name %> </h2>
+            <ul>
+              <li><%= link_to "Профиль", edit_user_path(current_user) %></li>
+              <li><a href="#">Добавить новость</a></li>
+              <li><%= link_to "Выйти", log_out_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <h2> Регистрация или Вход</h2>
+            <%= form_for(:session, :url => url_for(:controller => "sessions", :action => "create")) do |f| %>
+              <div><%= f.text_field :nick_name, {placeholder: "Введите логин"} %></div>
+              <div><%= f.password_field :password, {placeholder: "Введите пароль"}%></div>
+              <div id="sign_in"><%= f.submit "Войти" %></div>
+            <% end %>
+            <div id="sign_up"><%= button_to "Регистрация", new_user_path, :method => "get" %></div>
           <% end %>
-          <div id="sign_up"><%= button_to "Регистрация", new_user_path, :method => "get" %></div>
         </div>
         <div class='menu_footer'></div>
 

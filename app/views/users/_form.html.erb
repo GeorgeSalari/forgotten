@@ -1,0 +1,40 @@
+<div class="new_user_form_part" >
+  <p>
+    <span>*</span><%= form.label "Имя:" %>
+  </p>
+  <div>
+    <%= form.text_field :first_name, { placeholder: "#{@user.errors.messages[:first_name][0]}" } %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
+    <span>*</span><%= form.label "Ник в арене(логин):"%>
+  </p>
+  <div>
+    <%= form.text_field :nick_name, { placeholder: "#{@user.errors.messages[:nick_name][0]}" } %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
+    <span>*</span><%= form.label "Ссылка на персонаж:"%>
+  </p>
+  <div>
+    <%= form.text_field :player_link, { placeholder: "#{@user.errors.messages[:player_link][0]}" } %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
+    <span>*</span><%= form.label "E-mail:" %>
+  </p>
+  <div>
+    <%= form.email_field :email, { placeholder: "#{@user.errors.messages[:email][0]}" } %>
+  </div>
+</div>
+<div class="new_user_form_part" >
+  <p>
+    <span>*</span><%= form.label "Пароль:" %>
+  </p>
+  <div>
+    <%= form.password_field :password, { placeholder: "6 символов и более" } %>
+  </div>
+</div>

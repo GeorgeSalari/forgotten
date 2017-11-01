@@ -113,6 +113,7 @@ p.news_footer_content {
   background: url('menuCenterNEW.png');
   background-size: contain;
   margin-top: -2px;
+  border-radius: 5px;
 }
 
 .menu_center form {
@@ -131,7 +132,7 @@ p.news_footer_content {
 .menu_center ul {
   margin:0;
   padding-left: 50px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   list-style: none;
 }
 
@@ -145,7 +146,7 @@ p.news_footer_content {
 }
 
 .menu_center h2 {
-  margin:0 0 20px 0;
+  margin:-40px 0 20px 0;
   text-align: center;
   color: #8f4025;
 }
@@ -180,7 +181,7 @@ div#sign_up {
 div#sign_up input{
   background-color: #8f6350;
   border-radius: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   width: 40%;
   height: 25px;
   color: white;

@@ -4,11 +4,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    byebug
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Привет #{@user.nick_name}!"
+      redirect_to "/"
     else
+      flash[:error] = @user.check_errors(@user.errors)
+      render 'users/new'
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private
