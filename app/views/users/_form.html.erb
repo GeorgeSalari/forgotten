@@ -62,3 +62,12 @@
     <%= form.password_field :password, { placeholder: "6 символов и более" } %>
   </div>
 </div>
+<div class="new_user_form_part" >
+  <p>
+    <%= form.label "Фото профиля:" %>
+  </p>
+  <div>
+    <%= form.file_field :profile_photo %>
+  </div>
+</div>
+

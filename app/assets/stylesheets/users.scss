@@ -42,7 +42,8 @@ div.submit_button input:hover {
   color:black;
 }
 
-div.submit_button input:focus {
+div.submit_button input:focus,
+#user_profile_photo:focus {
   outline: none;
 }
 
@@ -60,3 +61,28 @@ span {
   border-bottom:2px solid #EEEEEE;
   font-size: 20px;
 }
+
+/* select */
+#user_profile_photo {
+  padding: 0;
+}
+
+/*show page*/
+#user_profile {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 16% 16% repeat(4, 17%);
+}
+
+.show_profile_photo {
+  grid-row: 1 / 7;
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+}
+
+#user_profile p {
+  margin: 0 30px;
+  padding: 0;
+}
+
