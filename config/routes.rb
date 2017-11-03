@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post 'sign_in' => 'sessions#create', as: :sign_in
   delete 'log_out' => 'sessions#destroy', as: :log_out
   get 'joining' => 'welcome#joining', as: :joining
+  get 'charter' => 'welcome#charter', as: :charter
 end

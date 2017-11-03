@@ -4,4 +4,7 @@ class WelcomeController < ApplicationController
 
   def joining
   end
+
+  def charter
+  end
 end
