@@ -113,12 +113,26 @@ p.news_footer_content {
   background: url('menuCenterNEW.png');
   background-size: contain;
   margin-top: -2px;
+  border-radius: 5px;
+}
+
+.menu_center form {
+  text-align: center;
+}
+
+.menu_center form input {
+  margin-bottom: 5px;
+  width: 70%;
+  height: 20px;
+}
+
+.menu_center div {
 }
 
 .menu_center ul {
   margin:0;
   padding-left: 50px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   list-style: none;
 }
 
@@ -132,7 +146,7 @@ p.news_footer_content {
 }
 
 .menu_center h2 {
-  margin:0 0 20px 0;
+  margin:-40px 0 20px 0;
   text-align: center;
   color: #8f4025;
 }
@@ -145,4 +159,50 @@ p.news_footer_content {
   background-repeat: no-repeat;
   margin-top: -5px;
   margin-left: -2px;
+}
+
+div#sign_in input{
+  background-color: #8f6350;
+  border-radius: 15px;
+  width: 40%;
+  height: 25px;
+  color: white;
+}
+
+div#sign_in input:hover {
+  background-color: #fed79b;
+  color:black;
+}
+
+div#sign_up {
+  text-align: center;
+}
+
+div#sign_up input{
+  background-color: #8f6350;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  width: 40%;
+  height: 25px;
+  color: white;
+}
+
+div#sign_up input:hover {
+  background-color: #fed79b;
+  color:black;
+}
+
+div#sign_up input:focus,
+div#sign_in input:focus {
+  outline: none;
+}
+
+.count {
+  width: 35px;
+  height: 36px;
+  background: url('com.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  line-height: 36px;
 }

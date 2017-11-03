@@ -1,73 +1,28 @@
-<div class='full_page'>
-  <div id='left_menu' class='menu'>
-    <div class="menu_top"></div>
+<% 10.times do %>
+  <div class="news_content">
 
-    <div class="menu_center">
-      <h2>Меню</h2>
-      <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Состав</a></li>
-        <li><a href="#">Форум</a></li>
-      </ul>
-    </div>
+    <h1>Набор в клан</h1>
 
-    <div class="menu_center">
-      <h2>О клане</h2>
-      <ul>
-        <li><a href="#">Новичку</a></li>
-        <li><a href="#">Вступление</a></li>
-        <li><a href="#">Устав</a></li>
-        <li><a href="#">Легенда</a></li>
-      </ul>
-    </div>
+    <p>
+      Клан  Забытые Богом объявляет о наборе амбициозных и идейных игроков в свои ряды! Наш Клан строит далекоидущие планы на Чемпионат и Турнир Равных. Дружный и сплочённый коллектив, поддержка и развитие персонажа. Условия вступления можно обсудить с Главой Клана — <a href="http://kovcheg.apeha.ru/info.html?user=200848712">-Легион-</a> или Замом — <a href="http://kovcheg.apeha.ru/info.html?nick=volante">Volante</a>.
+    </p>
 
-    <div class='menu_footer'></div>
-  </div>
-  <div id='news'>
-    <% 10.times do %>
-      <div class="news_content">
-
-        <h1>Набор в клан</h1>
-
-        <p>
-          Клан  Забытые Богом объявляет о наборе амбициозных и идейных игроков в свои ряды! Наш Клан строит далекоидущие планы на Чемпионат и Турнир Равных. Дружный и сплочённый коллектив, поддержка и развитие персонажа. Условия вступления можно обсудить с Главой Клана — <a href="http://kovcheg.apeha.ru/info.html?user=200848712">-Легион-</a> или Замом — <a href="http://kovcheg.apeha.ru/info.html?nick=volante">Volante</a>.
-        </p>
-
-        <div class='news_footer'>
-          <div class='author'>
-            <p class='news_footer_content'>Опубликовал:</p>
-            <p class='news_footer_content'><a href="http://kovcheg.apeha.ru/info.html?user=200848712">-Легион-</a> </p>
-          </div>
-          <div class='comment'>
-            <p class='news_footer_content'>Коментариев:</p>
-            <p class='news_footer_content'><%= image_tag('com.png') %></p>
-          </div>
-          <div class='views'>
-            <p class='news_footer_content'>Просмотров:</p>
-            <p class='news_footer_content'><%= image_tag('com.png') %></p>
-          </div>
-        </div>
-
-        <div class='separator'></div>
-
+    <div class='news_footer'>
+      <div class='author'>
+        <p class='news_footer_content'>Опубликовал:</p>
+        <p class='news_footer_content'><a href="http://kovcheg.apeha.ru/info.html?user=200848712">-Легион-</a> </p>
       </div>
-    <% end %>
-    <div id='newsFooter'>
+      <div class='comment'>
+        <p class='news_footer_content'>Коментариев:</p>
+        <p class='news_footer_content count'>2</p>
+      </div>
+      <div class='views'>
+        <p class='news_footer_content'>Просмотров:</p>
+        <p class='news_footer_content count'>22</p>
+      </div>
+    </div>
 
-    </div>
+    <div class='separator'></div>
+
   </div>
-  <div id='right_menu' class='menu'>
-    <div class="menu_top"></div>
-    <div class="menu_center">
-      <h2>Ресурсы клана</h2>
-      <ul>
-        <li><a href="#">Примерочная</a></li>
-        <li><a href="#">Таймер заклятий</a></li>
-        <li><a href="#">Устав</a></li>
-        <li><a href="#">Легенда</a></li>
-        <li><a href="#">Таблица опыта</a></li>
-      </ul>
-    </div>
-    <div class='menu_footer'></div>
-  </div>
-</div>
+<% end %>

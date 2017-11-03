@@ -1,0 +1,12 @@
+<div class="news_content">
+  <h1>Регистрация нового пользователя</h1>
+
+  <%= form_for @user do |form| %>
+    <%= render partial: 'users/form', object: form %>
+    <p>Поля отмеченые звездочкой (<span>*</span>), обязательны для заполнения!</p>
+    <div class="submit_button">
+      <%= form.submit "Регистрация" %>
+    </div>
+  <% end %>
+  <div class='separator'></div>
+</div>

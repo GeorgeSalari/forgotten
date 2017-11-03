@@ -1,6 +1,45 @@
 @import 'welcome';
+@import 'users';
 
 html,body {
   margin: 0;
   padding: 0;
+}
+
+div#flash {
+  display: inline-block;
+  width:100%;
+  text-align: center;
+  font-size: 20px;
+  height: 60px;
+  color: #8f4025;
+  line-height: 60px;
+}
+
+div#flash div.notice {
+  background-color: #81F781;
+}
+
+div#flash div.error {
+  background-color: #8a5242;
+  color: black;
+}
+
+.close {
+  margin-top: -3px;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  background: transparent;
+  font-size: 44px;
+  border:none;
+}
+
+.close:hover {
+  color: #8f4025;
+}
+
+.close:focus {
+  outline: none;
 }
