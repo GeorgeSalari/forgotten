@@ -7,4 +7,7 @@ class WelcomeController < ApplicationController
 
   def charter
   end
+
+  def legend
+  end
 end

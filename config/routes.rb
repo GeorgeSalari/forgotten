@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   delete 'log_out' => 'sessions#destroy', as: :log_out
   get 'joining' => 'welcome#joining', as: :joining
   get 'charter' => 'welcome#charter', as: :charter
+  get 'legend' => 'welcome#legend', as: :legend
 end
