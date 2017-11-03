@@ -10,7 +10,7 @@ class User < ApplicationRecord
       end
     }
   validates :first_name, presence: { message: "Введите пожалуйста свое имя!"}
-  validates :password, presence: { message: "Введите пожалуйста пароль!"}, length: { minimum: 6, message: "Пароль должен состоять из 6 и более символов!"}
+  validates :password, presence: { message: "Введите пожалуйста пароль!"}, length: { minimum: 6, message: "Пароль должен состоять из 6 и более символов!"}, on: :create
   validates :email, presence: { message: "Введите пожалуйста почту!"}, uniqueness:
     {
       message: ->(object, data) do

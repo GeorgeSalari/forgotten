@@ -23,6 +23,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params.reject{|_, v| v.blank?})
+      flash[:notice] = "Вы отредактировали свой профиль!"
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @user.check_errors(@user.errors)
+      render 'users/edit'
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :gender, :birthday, :nick_name, :player_link, :email, :password, :profile_photo)

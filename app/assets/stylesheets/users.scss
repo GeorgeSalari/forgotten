@@ -28,12 +28,19 @@
   text-align: center;
 }
 
-.submit_button input {
+.submit_button input,
+.submit_button button {
+  margin-top: 10px;
   background-color: #8f6350;
   border-radius: 15px;
   width: 40%;
   height: 35px;
   font-size: 20px;
+  color: white;
+}
+
+.submit_button button a {
+  text-decoration: none;
   color: white;
 }
 
@@ -43,7 +50,8 @@ div.submit_button input:hover {
 }
 
 div.submit_button input:focus,
-#user_profile_photo:focus {
+#user_profile_photo:focus,
+.submit_button button {
   outline: none;
 }
 
