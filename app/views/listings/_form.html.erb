@@ -1,0 +1,24 @@
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Заголовок:" %>
+  </h3>
+  <div>
+    <%= form.text_field :title, { placeholder: "Введите заголовок" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Краткое описания:" %>
+  </h3>
+  <div>
+    <%= form.text_area :short_content, { placeholder: "То что будет видно на новостной странице" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Новость целиком:" %>
+  </h3>
+  <div>
+    <%= form.text_area :full_content, { placeholder: "Все содержимое, включая краткое описания!!" } %>
+  </div>
+</div>

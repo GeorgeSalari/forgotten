@@ -1,0 +1,25 @@
+<div class="news_content" >
+  <h1><%= @listing.title %></h1>
+  <p class="created_at">
+    <%= "#{russian_date(@listing.created_at)}, просмотров: #{@listing.view_count}, опубликовал:"  %>
+    <%= link_to @listing.user.nick_name, @listing.user.player_link %>
+  </p>
+  <%= simple_format(@listing.full_content) %>
+  <div class="submit_button">
+    <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
+    <button><%= link_to "Удалить", listing_path(@listing), method: :delete %></button>
+  </div>
+  <div class="next_previous_news">
+    <% if @listing.previous_listing(params[:id]) %>
+      <div>
+        <p><%= link_to "Предыдущая новость", listing_path(@listing.previous_listing(params[:id]).id) %></p>
+      </div>
+    <% end %>
+    <% if @listing.next_lising(params[:id]) %>
+      <div>
+        <p><%= link_to "Следующая новость", listing_path(@listing.next_lising(params[:id]).id) %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class='separator'></div>
+</div>

@@ -1,0 +1,31 @@
+<% @listings.each do |listing| %>
+  <div class="news_content">
+
+    <h1>
+      <%= link_to listing.title, listing_path(listing) %>
+    </h1>
+    <p class="created_at"><%= russian_date(listing.created_at) %></p>
+    <%= simple_format(listing.short_content) %>
+    <p><%= link_to "Читать далее ", listing_path(listing) %></p>
+
+    <div class='news_footer'>
+      <div class='author'>
+        <p class='news_footer_content'>Опубликовал:</p>
+        <p class='news_footer_content'>
+          <%= link_to listing.user.nick_name, listing.user.player_link %>
+        </p>
+      </div>
+      <div class='comment'>
+        <p class='news_footer_content'>Коментариев:</p>
+        <p class='news_footer_content count'>2</p>
+      </div>
+      <div class='views'>
+        <p class='news_footer_content'>Просмотров:</p>
+        <p class='news_footer_content count'><%= listing.view_count %></p>
+      </div>
+    </div>
+
+    <div class='separator'></div>
+
+  </div>
+<% end %>
