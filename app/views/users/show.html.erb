@@ -1,20 +1,20 @@
 <div class="news_content">
-  <h1>Профиль <%= opened_user_profile(params[:id]).nick_name %></h1>
+  <h1>Профиль <%= @user.nick_name %></h1>
   <div id="user_profile">
-    <% if !opened_user_profile(params[:id]).profile_photo.url.nil? %>
-      <div class="show_profile_photo"><%= image_tag(opened_user_profile(params[:id]).profile_photo) %></div>
-    <% else %>
+    <% if @user.profile_photo.url.nil? %>
       <div class="show_profile_photo"><%= image_tag("default_avatar") %></div>
+    <% else %>
+      <div class="show_profile_photo"><%= image_tag(@user.profile_photo) %></div>
     <% end %>
-    <div><p><b>Имя:</b>  <%= opened_user_profile(params[:id]).full_name %></p></div>
-    <div><p><b>Игровой персонаж:</b>  <%= link_to opened_user_profile(params[:id]).nick_name, opened_user_profile(params[:id]).player_link %></p></div>
-    <div><p><b>Права на сайте:</b>  <%= opened_user_profile(params[:id]).user_role %></p></div>
-    <div><p><b>Почта:</b>  <%= opened_user_profile(params[:id]).email %></p></div>
-    <div><p><b>Пол:</b>  <%= opened_user_profile(params[:id]).gender %></p></div>
-    <div><p><b>День рождения:</b>  <%= opened_user_profile(params[:id]).user_birthday if opened_user_profile(params[:id]).birthday %></p></div>
+    <div><p><b>Имя:</b>  <%= @user.full_name %></p></div>
+    <div><p><b>Игровой персонаж:</b>  <%= link_to @user.nick_name, @user.player_link %></p></div>
+    <div><p><b>Права на сайте:</b>  <%= @user.user_role %></p></div>
+    <div><p><b>Почта:</b>  <%= @user.email %></p></div>
+    <div><p><b>Пол:</b>  <%= @user.gender %></p></div>
+    <div><p><b>День рождения:</b>  <%= russian_date(@user.birthday) if @user.birthday %></p></div>
   </div>
   <div class="submit_button">
-    <button><%= link_to "Редактировать", edit_user_path %></button>
+    <button><%= link_to "Редактировать", edit_user_path(@user) %></button>
   </div>
   <div class='separator'></div>
 </div>

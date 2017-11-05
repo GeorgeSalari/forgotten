@@ -6,8 +6,4 @@ module UsersHelper
   def logged_in?
     !current_user.nil?
   end
-
-  def opened_user_profile(id)
-    User.find(id)
-  end
 end

@@ -1,0 +1,12 @@
+<div class="news_content">
+  <h1>Добавление новой новости</h1>
+
+  <%= form_for @listing do |form| %>
+    <%= render partial: 'listings/form', object: form %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <div class="submit_button">
+      <%= form.submit "Опубликовать" %>
+    </div>
+  <% end %>
+  <div class='separator'></div>
+</div>

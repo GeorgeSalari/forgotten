@@ -1,0 +1,41 @@
+div.new_listing_form_part textarea {
+  margin-left: 35px;
+  margin-bottom: 20px;
+  width: 87%;
+  height: 200px;
+  font-size: 18px;
+}
+
+div.new_listing_form_part input {
+  margin-left: 35px;
+  margin-bottom: 20px;
+  width: 87%;
+  font-size: 18px;
+  height: 30px;
+}
+
+div.new_listing_form_part h3 {
+  margin-left: 20px;
+}
+
+p.created_at {
+  margin-top: -25px;
+  font-size: 13px;
+}
+
+div.news_content h1 a {
+  text-decoration: none;
+  color: #8f4025;
+}
+
+.next_previous_news{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next_previous_news div {
+  border-bottom: 1px solid #8f4025;
+  width: 100%;
+  text-align: center;
+}
