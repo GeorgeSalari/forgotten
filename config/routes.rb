@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'charter' => 'welcome#charter', as: :charter
   get 'legend' => 'welcome#legend', as: :legend
   resources :listings
+  resources :news_comments, only: [:create, :update, :destroy]
 end

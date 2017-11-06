@@ -18,6 +18,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @comment = NewsComment.new
     @listing = Listing.find(params[:id])
     @listing.increase_view_count
   end

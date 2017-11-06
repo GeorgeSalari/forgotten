@@ -21,5 +21,76 @@
       </div>
     <% end %>
   </div>
+  <div class="all_comments">
+    <% @listing.news_comments.each do |comment| %>
+      <div class="one_news_comment">
+        <div class='profile_image'><%= image_tag(comment.user.profile_photo) %></div>
+        <div>
+          <p id="owner_comment_<%=comment.id%>"><b><%= link_to comment.user.nick_name, comment.user.player_link %> написал <i><%= russian_date(comment.created_at) %></i></b></p>
+          <div id="news_comment_content_<%=comment.id%>">
+            <% if !comment.quote_head.nil? && !comment.quote_head.empty? %>
+              <% comment.edit_content %>
+              <div class="quote_div">
+                <div>
+                  <p>Цитата: <%= comment.quote_head %></p>
+                </div>
+                <p><%= comment.quote_content %></p>
+              </div>
+            <% end %>
+            <%= simple_format(comment.content) %>
+            <div class="comment_button">
+              <% if current_user.id == comment.user_id %>
+                <button id='<%=comment.id%>' class="edit_comment" >Редактировать</button>
+                <button><%= link_to "Удалить", news_comment_path(comment), method: :delete %></button>
+              <% else %>
+                <button id='<%=comment.id%>' class="quote_comment">Цитировать</button>
+              <% end %>
+            </div>
+          </div>
+          <div id="edit_news_comment_<%=comment.id%>" class="hidden edit_news_comment">
+            <%= form_for comment do |f| %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :listing_id, value: @listing.id %>
+              <%= f.text_area :content %>
+              <div id="add_comment"><%= f.submit "Сохранить" %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div id='add_comment_form'>
+    <p><b>Добавить комментарий:</b></p>
+    <%= form_for @comment do |f| %>
+      <%= f.hidden_field :quote_head, value: nil %>
+      <%= f.hidden_field :quote_content, value: nil %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :listing_id, value: @listing.id %>
+      <%= f.text_area :content, placeholder: "Введите ваш комментарий" %>
+      <div id="add_comment"><%= f.submit "Добавить" %></div>
+    <% end %>
+  </div>
   <div class='separator'></div>
 </div>
+
+<script>
+  $(".edit_comment").click(function(){
+    let comment_id = $(this).attr('id')
+    $('#news_comment_content_'+comment_id).toggleClass('hidden')
+    $('#edit_news_comment_'+comment_id).toggleClass('hidden')
+  }),
+
+  $('.quote_comment').click(function(){
+    let comment_id = $(this).attr('id');
+    let owner_comment = $("#owner_comment_"+comment_id).text().split(' ')[0];
+    let quote_content = ""
+    if ($("#news_comment_content_"+comment_id+" p").length == 1){
+      quote_content = $("#news_comment_content_"+comment_id+" p").text();
+    } else {
+      quote_content = $("#news_comment_content_"+comment_id+" p:nth-child(2n)").text().split('\n')[1];
+    }
+    $("#news_comment_quote_head").val(owner_comment);
+    $("#news_comment_quote_content").val(quote_content);
+    $("#add_comment_form textarea").text('цитата\n');
+  })
+</script>
