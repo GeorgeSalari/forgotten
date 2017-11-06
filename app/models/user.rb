@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :listings, dependent: :destroy
+  has_many :news_comments, dependent: :destroy
   mount_uploader :profile_photo, UserAvatarUploader
   has_secure_password
   enum role: [:user, :forgotten, :journalist, :admin, :superadmin]

@@ -1,5 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
+  has_many :news_comments, dependent: :destroy
+
   validates :title, :short_content, :full_content, :user_id, presence: true
 
   def increase_view_count
