@@ -3,9 +3,14 @@ class SessionsController < ApplicationController
     @user = User.find_by(nick_name: params[:session][:nick_name])
     if @user
       if @user.authenticate(params[:session][:password])
-        session[:user_id] = @user.id
-        flash[:notice] = "Привет #{@user.nick_name}!"
-        redirect_to '/'
+        if @user.email_confirmation
+          session[:user_id] = @user.id
+          flash[:notice] = "Привет #{@user.nick_name}!"
+          redirect_to '/'
+        else
+          flash[:notice] = "Привет #{@user.nick_name}! Что бы зайти, нужно актиировать свой аккаунд, проверь почту!"
+          redirect_to '/'
+        end
       else
         flash[:error] = "Не верный пароль!"
         redirect_to '/'
