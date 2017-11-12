@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_create :confirmation_token
   has_many :listings, dependent: :destroy
   has_many :news_comments, dependent: :destroy
   mount_uploader :profile_photo, UserAvatarUploader
@@ -26,6 +27,11 @@ class User < ApplicationRecord
                   "Привет #{object.first_name}!, данная ссылка уже есть в нашей базе!"
                 end
               }
+  def email_activate
+    self.email_confirmation = true
+    self.confirm_token = nil
+    save!(validate: false)
+  end
 
   def check_errors(errors)
     if !errors.messages[:nick_name].empty?
@@ -57,6 +63,14 @@ class User < ApplicationRecord
       "Администратор"
     when "superadmin"
       "Суперадмин"
+    end
+  end
+
+  private
+
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
 end
