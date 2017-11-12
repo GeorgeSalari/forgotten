@@ -5,10 +5,12 @@
     <%= link_to @listing.user.nick_name, @listing.user.player_link %>
   </p>
   <%= simple_format(@listing.full_content) %>
-  <div class="submit_button">
-    <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
-    <button><%= link_to "Удалить", listing_path(@listing), method: :delete %></button>
-  </div>
+  <% if current_user.id == @listing.user.id || current_user.admin? || current_user.superadmin? %>
+    <div class="submit_button">
+      <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
+      <button><%= link_to "Удалить", listing_path(@listing), method: :delete %></button>
+    </div>
+  <% end %>
   <div class="next_previous_news">
     <% if @listing.previous_listing(params[:id]) %>
       <div>

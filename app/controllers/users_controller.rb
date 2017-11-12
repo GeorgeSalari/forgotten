@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
   def show
     @user = User.find(params[:id])
   end
@@ -25,12 +26,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params.reject{|_, v| v.blank?})
-      flash[:notice] = "Вы отредактировали свой профиль!"
-      redirect_to user_path(@user)
+    if @user.id == current_user.id || current_user.superadmin?
+      if @user.update(user_params.reject{|_, v| v.blank?})
+        flash[:notice] = "Вы отредактировали свой профиль!"
+        redirect_to user_path(@user)
+      else
+        flash[:error] = @user.check_errors(@user.errors)
+        render 'users/edit'
+      end
     else
-      flash[:error] = @user.check_errors(@user.errors)
-      render 'users/edit'
+      flash[:notice] = "У вас нет прав редактировать пользователей!"
+      redirect_to "/"
     end
   end
 
