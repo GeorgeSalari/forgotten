@@ -30,7 +30,9 @@
             <h2>Привет <%= current_user.nick_name %> </h2>
             <ul>
               <li><%= link_to "Профиль", user_path(current_user) %></li>
-              <li><%= link_to "Добавить новость", new_listing_path %></li>
+              <% if current_user.journalist? || !current_user.admin? || !current_user.superadmin? %>
+                <li><%= link_to "Добавить новость", new_listing_path %></li>
+              <% end %>
               <li><%= link_to "Выйти", log_out_path, method: :delete %></li>
             </ul>
           <% else %>

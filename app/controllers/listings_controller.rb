@@ -9,11 +9,16 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    if @listing.save
-      flash[:notice] = "Новость создана!"
-      redirect_to "/"
+    if @listnig.user.journalist? || !@listnig.user.admin? || !@listnig.user.superadmin?
+      if @listing.save
+        flash[:notice] = "Новость создана!"
+        redirect_to "/"
+      else
+        flash[:error] = "Все поля должны быть заполнены!"
+      end
     else
-      flash[:error] = "Все поля должны быть заполнены!"
+      flash[:notice] = "У вас нет прав добавлять новости!"
+      redirect_to "/"
     end
   end
 
@@ -29,24 +34,34 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    if @listing.update(listing_params)
-      flash[:notice] = "Новость отредактирована!"
-      redirect_to listing_path(@listing)
+    if @listnig.user.journalist? || !@listnig.user.admin? || !@listnig.user.superadmin?
+      if @listing.update(listing_params)
+        flash[:notice] = "Новость отредактирована!"
+        redirect_to listing_path(@listing)
+      else
+        flash[:error] = "Все поля должны быть заполнены!"
+        render 'listings/edit'
+      end
     else
-      flash[:error] = "Все поля должны быть заполнены!"
-      render 'listings/edit'
+      flash[:notice] = "У вас нет прав редактировать новости!"
+      redirect_to "/"
     end
   end
 
   def destroy
     @listing = Listing.find(params[:id])
-    if @listing
-      @listing.destroy
-      flash[:notice] = "Новость удалена!"
-      redirect_to '/'
+    if @listnig.user.journalist? || !@listnig.user.admin? || !@listnig.user.superadmin?
+      if @listing
+        @listing.destroy
+        flash[:notice] = "Новость удалена!"
+        redirect_to '/'
+      else
+        flash[:notice] = "Нет такой новости!"
+        redirect_to '/'
+      end
     else
-      flash[:notice] = "Нет такой новости!"
-      redirect_to '/'
+      flash[:notice] = "У вас нет прав удалять новости!"
+      redirect_to "/"
     end
   end
 
