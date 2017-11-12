@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    if @listnig.user.journalist? || !@listnig.user.admin? || !@listnig.user.superadmin?
+    if @listnig.user.journalist? || @listnig.user.admin? || @listnig.user.superadmin?
       if @listing.save
         flash[:notice] = "Новость создана!"
         redirect_to "/"
@@ -34,7 +34,7 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    if @listnig.user.journalist? || !@listnig.user.admin? || !@listnig.user.superadmin?
+    if @listnig.user.journalist? || @listnig.user.admin? || @listnig.user.superadmin?
       if @listing.update(listing_params)
         flash[:notice] = "Новость отредактирована!"
         redirect_to listing_path(@listing)
@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing = Listing.find(params[:id])
-    if @listnig.user.journalist? || !@listnig.user.admin? || !@listnig.user.superadmin?
+    if @listnig.user.journalist? || @listnig.user.admin? || @listnig.user.superadmin?
       if @listing
         @listing.destroy
         flash[:notice] = "Новость удалена!"
