@@ -4,7 +4,7 @@
     <%= "#{russian_date(@listing.created_at)}, просмотров: #{@listing.view_count}, опубликовал:"  %>
     <%= link_to @listing.user.nick_name, @listing.user.player_link %>
   </p>
-  <%= simple_format(@listing.full_content) %>
+  <%= raw @listing.full_content %>
   <% if current_user.id == @listing.user.id || current_user.admin? || current_user.superadmin? %>
     <div class="submit_button">
       <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
