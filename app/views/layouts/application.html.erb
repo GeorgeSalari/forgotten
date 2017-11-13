@@ -37,9 +37,9 @@
           <% if logged_in? %>
             <h2>Привет <%= current_user.nick_name %> </h2>
             <ul>
-              <li><%= link_to "Профиль", user_path(current_user) %></li>
+              <li id='menu_profile'><%= link_to "Профиль", user_path(current_user) %></li>
               <% if current_user.journalist? || current_user.admin? || current_user.superadmin? %>
-                <li><%= link_to "Добавить новость", new_listing_path %></li>
+                <li id='menu_add_news'><%= link_to "Добавить новость", new_listing_path %></li>
               <% end %>
               <li><%= link_to "Выйти", log_out_path, method: :delete %></li>
             </ul>
@@ -59,7 +59,7 @@
         <div class="menu_center">
           <h2>Меню</h2>
           <ul>
-            <li><a href="/">Главная</a></li>
+            <li id='menu_main'><a class='active_menu' href="/">Главная</a></li>
             <li><a href="#">Состав</a></li>
             <li><a href="#">Форум</a></li>
           </ul>
@@ -70,9 +70,9 @@
         <div class="menu_center">
           <h2>О клане</h2>
           <ul>
-            <li><%= link_to "Вступление", joining_path %></li>
-            <li><%= link_to "Устав", charter_path %></li>
-            <li><%= link_to "Легенда", legend_path %></li>
+            <li id='menu_joining'><%= link_to "Вступление", joining_path %></li>
+            <li id='menu_charter'><%= link_to "Устав", charter_path %></li>
+            <li id='menu_legend'><%= link_to "Легенда", legend_path %></li>
           </ul>
         </div>
         <div class='menu_footer'></div>
@@ -97,6 +97,38 @@
         <div class='menu_footer'></div>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function(){
+        var all_li = $("li");
+        if(window.location.href.indexOf("joining") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_joining').children().addClass('active_menu');
+        } else if (window.location.href.indexOf("charter") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_charter').children().addClass('active_menu');
+        } else if (window.location.href.indexOf("legend") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_legend').children().addClass('active_menu');
+        } else if (window.location.href.indexOf("users") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_profile').children().addClass('active_menu');
+        } else if (window.location.href.indexOf("listings/new") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_add_news').children().addClass('active_menu');
+        }
+      })
+    </script>
 
   </body>
 </html>
