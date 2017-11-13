@@ -53,14 +53,16 @@
               </div>
             <% end %>
           </div>
-          <div id="edit_news_comment_<%=comment.id%>" class="hidden edit_news_comment">
-            <%= form_for comment do |f| %>
-              <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.hidden_field :listing_id, value: @listing.id %>
-              <%= f.text_area :content %>
-              <div id="add_comment"><%= f.submit "Сохранить" %></div>
-            <% end %>
-          </div>
+          <% if logged_in? %>
+            <div id="edit_news_comment_<%=comment.id%>" class="hidden edit_news_comment">
+              <%= form_for comment do |f| %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :listing_id, value: @listing.id %>
+                <%= f.text_area :content %>
+                <div id="add_comment"><%= f.submit "Сохранить" %></div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
