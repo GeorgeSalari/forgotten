@@ -26,7 +26,7 @@
     <% end %>
   </div>
   <div class="all_comments">
-    <% @listing.news_comments.each do |comment| %>
+    <% @listing.news_comments.order!.each do |comment| %>
       <div class="one_news_comment">
         <div class='profile_image'><%= image_tag(comment.user.profile_photo) %></div>
         <div>
@@ -48,7 +48,7 @@
                   <button id='<%=comment.id%>' class="edit_comment" >Редактировать</button>
                   <button><%= link_to "Удалить", news_comment_path(comment), method: :delete %></button>
                 <% else %>
-                  <button id='<%=comment.id%>' class="quote_comment">Цитировать</button>
+                  <button id='<%=comment.id%>' class="quote_comment">Ответить</button>
                 <% end %>
               </div>
             <% end %>
