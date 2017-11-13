@@ -1,0 +1,29 @@
+.new_listing_form_part div select{
+  margin-left: 35px;
+  margin-bottom: 20px;
+  width: 87%;
+  font-size: 18px;
+  height: 30px;
+}
+
+.one_clan_member {
+  width: 95%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6% 9% 20% 10% 18% 18% 18%;
+  text-align: center;
+}
+
+.one_clan_member_top {
+  background-color: #e9a451;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  padding: 5px 0;
+}
+
+.one_clan_member_content {
+  background-color: #edc98f;
+  padding: 10px 0;
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
