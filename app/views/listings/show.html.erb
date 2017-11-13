@@ -42,14 +42,16 @@
               </div>
             <% end %>
             <%= simple_format(comment.content) %>
-            <div class="comment_button">
-              <% if current_user.id == comment.user_id %>
-                <button id='<%=comment.id%>' class="edit_comment" >Редактировать</button>
-                <button><%= link_to "Удалить", news_comment_path(comment), method: :delete %></button>
-              <% else %>
-                <button id='<%=comment.id%>' class="quote_comment">Цитировать</button>
-              <% end %>
-            </div>
+            <% if logged_in? %>
+              <div class="comment_button">
+                <% if current_user.id == comment.user_id %>
+                  <button id='<%=comment.id%>' class="edit_comment" >Редактировать</button>
+                  <button><%= link_to "Удалить", news_comment_path(comment), method: :delete %></button>
+                <% else %>
+                  <button id='<%=comment.id%>' class="quote_comment">Цитировать</button>
+                <% end %>
+              </div>
+            <% end %>
           </div>
           <div id="edit_news_comment_<%=comment.id%>" class="hidden edit_news_comment">
             <%= form_for comment do |f| %>
