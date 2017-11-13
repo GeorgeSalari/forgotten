@@ -46,6 +46,6 @@
 
 $(document).ready(function(){
   $(".close").click(function(){
-    $("//flash").hide();
+    $("#flash").hide();
   })
 })
