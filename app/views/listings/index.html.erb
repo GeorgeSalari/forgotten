@@ -5,7 +5,7 @@
       <%= link_to listing.title, listing_path(listing) %>
     </h1>
     <p class="created_at"><%= russian_date(listing.created_at) %></p>
-    <%= simple_format(listing.short_content) %>
+    <%= raw listing.short_content %>
     <p><%= link_to "Читать далее ", listing_path(listing) %></p>
 
     <div class='news_footer'>
