@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get 'legend' => 'welcome#legend', as: :legend
   resources :listings
   resources :news_comments, only: [:create, :update, :destroy]
+  resources :clan_members, except: [:show]
+  get 'admining_members' => 'clan_members#admining_members'
 end

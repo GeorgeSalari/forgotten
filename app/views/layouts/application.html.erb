@@ -59,8 +59,8 @@
         <div class="menu_center">
           <h2>Меню</h2>
           <ul>
-            <li id='menu_main'><a class='active_menu' href="/">Главная</a></li>
-            <li><a href="#">Состав</a></li>
+            <li id='menu_main'><%= link_to 'Главная', { controller: :listings, action: :index }, class: 'active_menu' %></li>
+            <li id='menu_clan_members'><%= link_to "Состав", clan_members_path %></li>
             <li><a href="#">Форум</a></li>
           </ul>
         </div>
@@ -130,6 +130,11 @@
           all_li.each(function() {
             $(this).children().removeClass('active_menu');
           });
+        } else if (window.location.href.indexOf("clan_members") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_clan_members').children().addClass('active_menu');
         }
       })
     </script>

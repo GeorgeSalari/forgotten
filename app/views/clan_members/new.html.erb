@@ -1,0 +1,11 @@
+<div class="news_content">
+  <h1>Добавление нового игрока в состав</h1>
+
+  <%= form_for @clan_member do |form| %>
+    <%= render partial: 'clan_members/form', object: form %>
+    <div class="submit_button">
+      <%= form.submit "Добавить" %>
+    </div>
+  <% end %>
+  <div class='separator'></div>
+</div>

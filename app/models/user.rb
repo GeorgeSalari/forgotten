@@ -27,6 +27,7 @@ class User < ApplicationRecord
                   "Привет #{object.first_name}!, данная ссылка уже есть в нашей базе!"
                 end
               }
+
   def email_activate
     self.email_confirmation = true
     self.confirm_token = nil

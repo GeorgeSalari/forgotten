@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112080836) do
+ActiveRecord::Schema.define(version: 20171113110141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clan_members", force: :cascade do |t|
+    t.string "race"
+    t.string "nick_name"
+    t.string "player_link"
+    t.integer "player_level"
+    t.string "player_post"
+    t.string "city"
+    t.string "name"
+    t.date "birthday"
+    t.string "department"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "title"

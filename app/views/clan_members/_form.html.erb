@@ -1,0 +1,72 @@
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Ник:" %>
+  </h3>
+  <div>
+    <%= form.text_field :nick_name, { placeholder: "Введите игровой ник" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Ссылка на персонаж:" %>
+  </h3>
+  <div>
+    <%= form.text_field :player_link, { placeholder: "Введите ссылку" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Раса:" %>
+  </h3>
+  <div>
+    <%= form.select :race, "<option>Hb</option><option>Hm</option><option>Gn</option><option>Or</option><option>El</option>".html_safe  %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Уровень игрока:" %>
+  </h3>
+  <div>
+    <%= form.number_field :player_level, { placeholder: "Введите уровень игрока" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Должность в клане:" %>
+  </h3>
+  <div>
+    <%= form.text_field :player_post, { placeholder: "Введите должность игрока" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Город проживания:" %>
+  </h3>
+  <div>
+    <%= form.text_field :city, { placeholder: "Введите город откуда родом" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Имя в реале:" %>
+  </h3>
+  <div>
+    <%= form.text_field :name, { placeholder: "Введите имя игрока" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "День рождения:" %>
+  </h3>
+  <div>
+    <%= form.date_field :birthday, { placeholder: "Введите день рождения игрока" } %>
+  </div>
+</div>
+<div class="new_listing_form_part" >
+  <h3>
+    <%= form.label "Отдел:" %>
+  </h3>
+  <div>
+    <%= form.select :department, "<option>Боец</option><option>Руководство</option><option>Совет</option><option>Програмист</option><option>Журналист</option>".html_safe  %>
+  </div>
+</div>
