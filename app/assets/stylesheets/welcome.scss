@@ -145,6 +145,24 @@ p.news_footer_content {
   color: black;
 }
 
+.menu_center ul li a:hover {
+  margin-left: -20px;
+  padding:5px 15px;
+  font-size: 24px;
+  border:2px solid #fed79b;
+  border-radius: 15px;
+  border-style: outset;
+}
+
+.active_menu {
+  margin-left: -20px;
+  padding:5px 15px;
+  font-size: 24px;
+  border:2px solid #fed79b;
+  border-radius: 15px;
+  border-style: inset;
+}
+
 .menu_center h2 {
   margin:-40px 0 20px 0;
   text-align: center;
