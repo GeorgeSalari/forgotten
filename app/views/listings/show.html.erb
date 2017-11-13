@@ -5,11 +5,13 @@
     <%= link_to @listing.user.nick_name, @listing.user.player_link %>
   </p>
   <%= raw @listing.full_content %>
-  <% if current_user.id == @listing.user.id || current_user.admin? || current_user.superadmin? %>
-    <div class="submit_button">
-      <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
-      <button><%= link_to "Удалить", listing_path(@listing), method: :delete %></button>
-    </div>
+  <% if logged_in? %>
+    <% if current_user.id == @listing.user.id || current_user.admin? || current_user.superadmin? %>
+      <div class="submit_button">
+        <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
+        <button><%= link_to "Удалить", listing_path(@listing), method: :delete %></button>
+      </div>
+    <% end %>
   <% end %>
   <div class="next_previous_news">
     <% if @listing.previous_listing(params[:id]) %>
@@ -61,17 +63,19 @@
       </div>
     <% end %>
   </div>
-  <div id='add_comment_form'>
-    <p><b>Добавить комментарий:</b></p>
-    <%= form_for @comment do |f| %>
-      <%= f.hidden_field :quote_head, value: nil %>
-      <%= f.hidden_field :quote_content, value: nil %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :listing_id, value: @listing.id %>
-      <%= f.text_area :content, placeholder: "Введите ваш комментарий" %>
-      <div id="add_comment"><%= f.submit "Добавить" %></div>
-    <% end %>
-  </div>
+  <% if logged_in? %>
+    <div id='add_comment_form'>
+      <p><b>Добавить комментарий:</b></p>
+      <%= form_for @comment do |f| %>
+        <%= f.hidden_field :quote_head, value: nil %>
+        <%= f.hidden_field :quote_content, value: nil %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :listing_id, value: @listing.id %>
+        <%= f.text_area :content, placeholder: "Введите ваш комментарий" %>
+        <div id="add_comment"><%= f.submit "Добавить" %></div>
+      <% end %>
+    </div>
+  <% end %>
   <div class='separator'></div>
 </div>
 
