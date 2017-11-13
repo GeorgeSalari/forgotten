@@ -31,7 +31,7 @@
         <div class='profile_image'><%= image_tag(comment.user.profile_photo) %></div>
         <div>
           <p id="owner_comment_<%=comment.id%>"><b><%= link_to comment.user.nick_name, comment.user.player_link %> написал <i><%= russian_date(comment.created_at) %></i></b></p>
-          <div id="news_comment_content_<%=comment.id%>">
+          <div>
             <% if !comment.quote_head.nil? && !comment.quote_head.empty? %>
               <% comment.edit_content %>
               <div class="quote_div">
@@ -41,7 +41,7 @@
                 <p><%= comment.quote_content %></p>
               </div>
             <% end %>
-            <%= simple_format(comment.content) %>
+            <%= simple_format(comment.content, id: "news_comment_content_#{comment.id}") %>
             <% if logged_in? %>
               <div class="comment_button">
                 <% if current_user.id == comment.user_id %>
@@ -92,13 +92,8 @@
 
   $('.quote_comment').click(function(){
     let comment_id = $(this).attr('id');
-    let owner_comment = $("#owner_comment_"+comment_id).text().split(' ')[0];
-    let quote_content = ""
-    if ($("#news_comment_content_"+comment_id+" p").length == 1){
-      quote_content = $("#news_comment_content_"+comment_id+" p").text();
-    } else {
-      quote_content = $("#news_comment_content_"+comment_id+" p:nth-child(2n)").text().split('\n')[1];
-    }
+    let owner_comment = $("#owner_comment_"+comment_id).text().split('написал')[0];
+    let quote_content = $("#news_comment_content_"+comment_id).text();
     $("#news_comment_quote_head").val(owner_comment);
     $("#news_comment_quote_content").val(quote_content);
     $("#add_comment_form textarea").text('цитата\n');
