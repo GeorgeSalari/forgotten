@@ -13,6 +13,6 @@ class Listing < ApplicationRecord
   end
 
   def next_lising(id)
-    Listing.find(id.to_i + 1) if id.to_i < Listing.all.count
+    Listing.find(id.to_i + 1) if id.to_i < Listing.last.id
   end
 end
