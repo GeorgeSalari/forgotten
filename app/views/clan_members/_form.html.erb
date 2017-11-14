@@ -19,7 +19,7 @@
     <%= form.label "Раса:" %>
   </h3>
   <div>
-    <%= form.select :race, "<option>Hb</option><option>Hm</option><option>Gn</option><option>Or</option><option>El</option>".html_safe  %>
+    <%= form.select :race, options_for_select(['Hb','Hm','Gn','Or','El'],@clan_member.race) %>
   </div>
 </div>
 <div class="new_listing_form_part" >
@@ -67,6 +67,6 @@
     <%= form.label "Отдел:" %>
   </h3>
   <div>
-    <%= form.select :department, "<option>Боец</option><option>Руководство</option><option>Совет</option><option>Програмист</option><option>Журналист</option>".html_safe  %>
+    <%= form.select :department, options_for_select(['Боец','Руководство','Совет','Програмист','Журналист'],@clan_member.department) %>
   </div>
 </div>

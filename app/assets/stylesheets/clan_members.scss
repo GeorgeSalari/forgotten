@@ -27,3 +27,19 @@
   margin-right: 2px;
   margin-bottom: 2px;
 }
+
+.one_clan_member_admining {
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 10% 30% 60%;
+  text-align: center;
+}
+
+.one_clan_member_admining .submit_button {
+  padding: 0;
+}
+
+.one_clan_member_admining .submit_button button {
+  margin-top: 0px;
+}
