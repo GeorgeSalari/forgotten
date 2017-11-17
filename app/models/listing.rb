@@ -9,10 +9,12 @@ class Listing < ApplicationRecord
   end
 
   def previous_listing(id)
-    Listing.find(id.to_i - 1) if id.to_i > 1
+    id.to_i -= 1
+    Listing.find(id) if Listing.exist?(id)
   end
 
   def next_lising(id)
-    Listing.find(id.to_i + 1) if id.to_i < Listing.last.id
+    id.to_i += 1
+    Listing.find(id) if Listing.exist?(id)
   end
 end
