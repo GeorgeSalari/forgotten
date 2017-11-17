@@ -11,7 +11,7 @@
     <%= form.label "Краткое описания:" %>
   </h3>
   <div>
-    <%= form.text_area :short_content, { placeholder: "То что будет видно на новостной странице" } %>
+    <%= form.cktext_area :short_content, { placeholder: "То что будет видно на новостной странице" } %>
   </div>
 </div>
 <div class="new_listing_form_part" >
@@ -19,6 +19,6 @@
     <%= form.label "Новость целиком:" %>
   </h3>
   <div>
-    <%= form.text_area :full_content, { placeholder: "Все содержимое, включая краткое описания!!" } %>
+    <%= form.cktext_area :full_content, { placeholder: "Все содержимое, включая краткое описания!!" } %>
   </div>
 </div>
