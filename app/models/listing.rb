@@ -9,10 +9,28 @@ class Listing < ApplicationRecord
   end
 
   def previous_listing(id)
-    Listing.find(id.to_i - 1) if id.to_i > 1
+    id = id.to_i
+    id -= 1
+    while id >= 1
+      if Listing.exists?(id)
+        result = Listing.find(id)
+        break
+      end
+      id -= 1
+    end
+    result
   end
 
   def next_lising(id)
-    Listing.find(id.to_i + 1) if id.to_i < Listing.last.id
+    id = id.to_i
+    id += 1
+    while id <= Listing.last.id
+      if Listing.exists?(id)
+        result = Listing.find(id)
+        break
+      end
+      id += 1
+    end
+    result
   end
 end
