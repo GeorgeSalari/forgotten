@@ -34,6 +34,7 @@ gem "mini_magick"
 gem "fog-aws"
 
 gem "figaro"
+gem "ckeditor"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
