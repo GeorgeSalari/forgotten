@@ -19,4 +19,23 @@ class ClanMember < ApplicationRecord
       self.errors.messages[:player_link][0]
     end
   end
+
+  def self.show_members(department)
+    case department
+    when "all"
+      ClanMember.all
+    when "leadership"
+      ClanMember.where(department: "Руководство")
+    when "council"
+      ClanMember.where(department: "Совет")
+    when "programmer"
+      ClanMember.where(department: "Программист")
+    when "information"
+      ClanMember.where(department: "Журналист")
+    when "combat"
+      ClanMember.where(department: "Боец")
+    else
+      ClanMember.all
+    end
+  end
 end
