@@ -4,7 +4,11 @@
     Состав клана
   </h1>
   <% if logged_in? %>
-    <p>Нажмите на нужный отдел для вывода людей состоящих в нем</p>
+    <h3>Подсказки:</h3>
+    <p id="hint">
+      *Нажмите на нужный отдел для вывода людей состоящих в нем<br/>
+      *Нажмите на наименование столбца для сортировки по его данным
+    </p>
     <div>
       <%= form_tag({:controller => "clan_members", :action => "index"}, :method => "get", :id => "get_department") do %>
         <%= hidden_field_tag :department, value: nil %>
