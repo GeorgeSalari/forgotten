@@ -1,7 +1,7 @@
 class ClanMembersController < ApplicationController
   include UsersHelper
   def index
-    @clan_members = ClanMember.show_members(params[:department])
+    @clan_members = ClanMember.show_members(params[:department], params[:order_members])
   end
 
   def new
