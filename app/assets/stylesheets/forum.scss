@@ -47,21 +47,20 @@
 .main_forum_container {
   width: 98%;
   margin: 0 10px;
-  padding: 5px 10px 10px;
+  padding: 10px 20px;
 }
 
-.forum_location {
-  background:transparent;
-  border-style: none;
+.main_forum_container a {
   color: rgba(215, 181, 0, 0.9);
-  font-size: 14px;
-  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 .next {
   display: inline;
-  font-size: 30px;
-  color: rgba(199, 199, 199, 0.5);
+  width: 1px;
+  margin: 0 10px;
+  border: solid 1px rgba(199,199,199,0.5);
 }
 
 .hidden {
@@ -110,9 +109,76 @@
   background-color: rgba(9, 9, 9, 0.8);
   padding: 10px 0;
   border-radius: 15px;
+}
+
+.forum_group_name a {
   color: #C7C7C7;
+  text-decoration: none;
 }
 
 .last {
   margin-bottom: 0;
+}
+
+#add_new_group {
+  width: 75%;
+  margin: 40px auto;
+}
+
+#add_new_group a,
+.create_new_theme a {
+  text-decoration: none;
+  background: rgba(9, 9, 9, 0.8);
+  padding: 15px 30px;
+  border-radius: 15px;
+  color: #C7C7C7;
+}
+
+.group_create_update {
+  margin: 30px;
+  color: #c7c7c7;
+}
+
+#group_title,
+#theme_title {
+  margin-left: 20px;
+  padding-left: 10px;
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+#new_group_submit {
+  width: 130px;
+  background: rgba(9, 9, 9, 0.8);
+  border: none;
+  color: #c7c7c7;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.create_new_theme {
+  margin: 30px 10px;
+}
+
+.forum_theme {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 41% 1% 12% 1% 12% 1% 32%;
+}
+
+.forum_theme_part {
+  padding-left: 20px;
+  color: #c7c7c7;
+  font-size: 16px;
+  height: 40px;
+}
+
+.forum_theme_part p {
+  margin-top: 10px;
 }

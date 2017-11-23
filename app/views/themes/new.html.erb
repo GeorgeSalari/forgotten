@@ -1,0 +1,17 @@
+<div class="forum_group">
+  <div class="forum_group_name">
+    <%= link_to "Создание новой темы в группе #{@group.title}", group_path(@group) %>
+  </div>
+  <div>
+    <%= form_for @theme do |f| %>
+    <div class="group_create_update">
+      <%= f.label "Название темы: " %>
+      <%= f.text_field :title, placeholder: "Введите название темы" %>
+      <%= f.hidden_field :group_id, value: @group.id %>
+    </div>
+    <div class="group_create_update">
+      <%= f.submit "Создать", id: "new_group_submit" %>
+    </div>
+    <% end %>
+  </div>
+</div>

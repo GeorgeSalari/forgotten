@@ -15,7 +15,7 @@
           <div class='one_clan_member_content' ><%= link_to clan_member.nick_name, clan_member.player_link %></div>
           <div class="submit_button one_clan_member_content">
             <button><%= link_to "Изменить", edit_clan_member_path(clan_member) %></button>
-            <button><%= link_to "Удалить", clan_member_path(clan_member), method: :delete %></button>
+            <button><%= link_to "Удалить", clan_member_path(clan_member), method: :delete, data: {confirm: "Are you sure?"} %></button>
           </div>
 
         <% i += 1 %>
