@@ -1,0 +1,16 @@
+<div class="forum_group">
+  <div class="forum_group_name">
+    Создание новой группы
+  </div>
+  <div>
+    <%= form_for @group do |f| %>
+    <div class="group_create_update">
+      <%= f.label "Название группы: " %>
+      <%= f.text_field :title, placeholder: "Введите название группы" %>
+    </div>
+    <div class="group_create_update">
+      <%= f.submit "Создать", id: "new_group_submit" %>
+    </div>
+    <% end %>
+  </div>
+</div>

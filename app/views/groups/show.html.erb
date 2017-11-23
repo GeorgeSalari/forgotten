@@ -1,0 +1,28 @@
+<div class="forum_group_top">
+  <div><p>Название</p></div>
+  <div><p>Тем</p></div>
+  <div><p>Сообщений</p></div>
+  <div><p>Последний топик</p></div>
+</div>
+
+<div class="forum_group">
+  <div class="forum_group_name">
+    <%= link_to @group.title, group_path(@group) %>
+  </div>
+  <div class="forum_theme">
+    <div class="forum_theme_part">
+    </div>
+    <div class="forum_theme_part">
+    </div>
+    <div class="forum_theme_part">
+    </div>
+    <div class="forum_theme_part">
+    </div>
+  </div>
+</div>
+
+<% if current_user.superadmin? %>
+  <div id="add_new_group">
+    <%= link_to "Удалить данную группу", group_path, method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+<% end %>

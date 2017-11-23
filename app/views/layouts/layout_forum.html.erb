@@ -13,6 +13,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <% if !flash.empty? %>
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="<%= key %>"><%= value %><button class="close">×</button></div>
+        <% end %>
+      </div>
+    <% end %>
     <div class="forum_full_page">
       <div class="forum_header">
         <div class="forum_header_top">
@@ -26,10 +33,10 @@
           Форум Клана Забытые Богом
         </div>
         <div class="main_forum_container">
-          <button class="forum_location">Форум</button> <div class="next"> | </div>
-          <button class="forum_location">Для всех</button> <div class="next"> | </div>
-          <button class="forum_location">Отдел кадров</button> <div class="next"> | </div>
-          <button class="forum_location">Вступление</button>
+          <%= link_to "Форум", forum_path %> <div class="next"> </div>
+          <%= link_to "Для всех", theme_path(1) %> <div class="next"> </div>
+          <%= link_to "Отдел кадров", topic_path(1) %> <div class="next"> </div>
+          <%= link_to "Вступление", post_path(1) %> <div class="next"> </div>
         </div>
       </div>
       <%= yield %>

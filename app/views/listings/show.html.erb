@@ -9,7 +9,7 @@
     <% if current_user.id == @listing.user.id || current_user.admin? || current_user.superadmin? %>
       <div class="submit_button">
         <button><%= link_to "Редактировать", edit_listing_path(@listing) %></button>
-        <button><%= link_to "Удалить", listing_path(@listing), method: :delete %></button>
+        <button><%= link_to "Удалить", listing_path(@listing), method: :delete, data: {confirm: "Are you sure?"} %></button>
       </div>
     <% end %>
   <% end %>
@@ -46,7 +46,7 @@
               <div class="comment_button">
                 <% if current_user.id == comment.user_id %>
                   <button id='<%=comment.id%>' class="edit_comment" >Редактировать</button>
-                  <button><%= link_to "Удалить", news_comment_path(comment), method: :delete %></button>
+                  <button><%= link_to "Удалить", news_comment_path(comment), method: :delete, data: {confirm: "Are you sure?"} %></button>
                 <% else %>
                   <button id='<%=comment.id%>' class="quote_comment">Ответить</button>
                 <% end %>
