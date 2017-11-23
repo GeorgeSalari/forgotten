@@ -27,7 +27,7 @@
 
 .forum_name {
   margin: 30px auto;
-  height: 120px;
+  height: 105px;
   width: 75%;
   background-color: rgba(27, 27, 27, 0.8);
   border-radius: 15px;
@@ -37,7 +37,7 @@
 #forum_text_name {
   text-align: center;
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   width: 98%;
   margin: 0 auto;
   background-color: rgba(9, 9, 9, 0.8);
@@ -55,7 +55,7 @@
   background-color: rgba(27, 27, 27, 0.1);
   border-style: none;
   color: rgba(215, 181, 0, 0.9);
-  font-size: 18px;
+  font-size: 16px;
   height: 60px;
   cursor: pointer;
 }
@@ -85,7 +85,7 @@
   display: grid;
   grid-template-columns: 45% 13% 13% 29%;
   text-align: center;
-  height: 70px;
+  height: 60px;
 }
 
 .forum_group_top div {
@@ -98,14 +98,14 @@
 
 .forum_group_top p {
   margin-top: 13px;
-  font-size: 20px;
+  font-size: 14px;
   color: rgb(253, 222, 109);
 }
 
 .forum_group_name {
   text-align: center;
   color: white;
-  font-size: 24px;
+  font-size: 14px;
   width: 98%;
   margin: 0 auto;
   background-color: rgba(9, 9, 9, 0.8);
