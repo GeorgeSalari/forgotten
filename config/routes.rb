@@ -17,4 +17,14 @@ Rails.application.routes.draw do
   resources :clan_members, except: [:show]
   get 'admining_members' => 'clan_members#admining_members'
   get 'forum' => 'forum#index'
+  resources :groups
+  resources :themes
+  resources :topics
+  resources :posts
+  resources :users, only: [:index, :show] do
+    collection do
+      get "touch"  # touch для current_user, чтобы обновить время онлайна
+      get "metrics" # разнообразная статистика
+    end
+  end
 end

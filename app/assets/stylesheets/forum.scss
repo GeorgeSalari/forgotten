@@ -27,7 +27,6 @@
 
 .forum_name {
   margin: 30px auto;
-  height: 105px;
   width: 75%;
   background-color: rgba(27, 27, 27, 0.8);
   border-radius: 15px;
@@ -36,32 +35,33 @@
 
 #forum_text_name {
   text-align: center;
-  color: white;
   font-size: 20px;
   width: 98%;
   margin: 0 auto;
   background-color: rgba(9, 9, 9, 0.8);
   padding: 10px 0;
   border-radius: 15px;
+  color: #C7C7C7;
 }
 
 .main_forum_container {
   width: 98%;
-  margin: 0 100px;
-  color: white;
+  margin: 0 10px;
+  padding: 5px 10px 10px;
 }
 
 .forum_location {
-  background-color: rgba(27, 27, 27, 0.1);
+  background:transparent;
   border-style: none;
   color: rgba(215, 181, 0, 0.9);
-  font-size: 16px;
-  height: 60px;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .next {
   display: inline;
+  font-size: 30px;
+  color: #C7C7C7;
 }
 
 .hidden {
@@ -111,6 +111,7 @@
   background-color: rgba(9, 9, 9, 0.8);
   padding: 10px 0;
   border-radius: 15px;
+  color: #C7C7C7;
 }
 
 .last {
