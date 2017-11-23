@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117144546) do
+ActiveRecord::Schema.define(version: 20171123110655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(version: 20171117144546) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.string "short_content"
@@ -64,6 +70,44 @@ ActiveRecord::Schema.define(version: 20171117144546) do
     t.index ["user_id"], name: "index_news_comments_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.bigint "theme_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["theme_id"], name: "index_posts_on_theme_id"
+    t.index ["topic_id"], name: "index_posts_on_topic_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "title"
+    t.bigint "group_id"
+    t.integer "topics_count", default: 0
+    t.json "last_post"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_themes_on_group_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.bigint "theme_id"
+    t.json "last_post"
+    t.integer "posts_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_topics_on_group_id"
+    t.index ["theme_id"], name: "index_topics_on_theme_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -82,4 +126,11 @@ ActiveRecord::Schema.define(version: 20171117144546) do
   end
 
   add_foreign_key "listings", "users"
+  add_foreign_key "posts", "themes"
+  add_foreign_key "posts", "topics"
+  add_foreign_key "posts", "users"
+  add_foreign_key "themes", "groups"
+  add_foreign_key "topics", "groups"
+  add_foreign_key "topics", "themes"
+  add_foreign_key "topics", "users"
 end

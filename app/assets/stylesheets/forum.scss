@@ -55,9 +55,13 @@
   background-color: rgba(27, 27, 27, 0.1);
   border-style: none;
   color: rgba(215, 181, 0, 0.9);
-  font-size: 16px;
+  font-size: 14px;
   height: 60px;
   cursor: pointer;
+}
+
+.main_forum_container div {
+  font-size: 14px;
 }
 
 .next {
@@ -83,7 +87,7 @@
   background-color: rgba(27, 27, 27, 0.8);
   border-radius: 15px;
   display: grid;
-  grid-template-columns: 45% 13% 13% 29%;
+  grid-template-columns: 42% 13% 13% 32%;
   text-align: center;
   height: 60px;
 }
@@ -98,7 +102,7 @@
 
 .forum_group_top p {
   margin-top: 13px;
-  font-size: 14px;
+  font-size: 16px;
   color: rgb(253, 222, 109);
 }
 
