@@ -53,7 +53,7 @@
           <ul>
             <li id='menu_main'><%= link_to 'Главная', { controller: :listings, action: :index }, class: 'active_menu' %></li>
             <li id='menu_clan_members'><%= link_to "Состав", clan_members_path %></li>
-            <li><a href="#">Форум</a></li>
+            <li><%= link_to "Форум", forum_path %></li>
           </ul>
         </div>
         <div class='menu_footer'></div>

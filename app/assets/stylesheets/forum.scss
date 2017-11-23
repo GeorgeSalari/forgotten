@@ -1,0 +1,118 @@
+.forum_full_page {
+  background: url('forum_background') fixed center top;
+  width: 100%;
+  padding-bottom: 150px;
+}
+
+.forum_header {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.forum_header_top {
+  height:15px;
+  background-color: rgba(9, 9, 9, 0.95);
+}
+
+.forum_header_container {
+  height: 90px;
+  background-color: rgba(27, 27, 27, 0.8);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.forum_header_container img {
+  margin:15px 30px;
+}
+
+.forum_name {
+  margin: 30px auto;
+  height: 120px;
+  width: 75%;
+  background-color: rgba(27, 27, 27, 0.8);
+  border-radius: 15px;
+  padding-top: 10px;
+}
+
+#forum_text_name {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  width: 98%;
+  margin: 0 auto;
+  background-color: rgba(9, 9, 9, 0.8);
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+.main_forum_container {
+  width: 98%;
+  margin: 0 100px;
+  color: white;
+}
+
+.forum_location {
+  background-color: rgba(27, 27, 27, 0.1);
+  border-style: none;
+  color: rgba(215, 181, 0, 0.9);
+  font-size: 18px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.next {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
+.forum_group {
+  margin: 30px auto;
+  height: 320px;
+  width: 75%;
+  background-color: rgba(27, 27, 27, 0.8);
+  border-radius: 15px;
+  padding-top: 10px;
+}
+
+.forum_group_top {
+  margin: 30px auto;
+  width: 75%;
+  background-color: rgba(27, 27, 27, 0.8);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 45% 13% 13% 29%;
+  text-align: center;
+  height: 70px;
+}
+
+.forum_group_top div {
+  width: 95%;
+  height: 75%;
+  margin: auto;
+  background-color: rgba(20, 20, 20, 0.8);
+  border-radius: 15px;
+}
+
+.forum_group_top p {
+  margin-top: 13px;
+  font-size: 20px;
+  color: rgb(253, 222, 109);
+}
+
+.forum_group_name {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  width: 98%;
+  margin: 0 auto;
+  background-color: rgba(9, 9, 9, 0.8);
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+.last {
+  margin-bottom: 0;
+}
