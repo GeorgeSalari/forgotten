@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.where("lower(nick_name) = ?", params[:session][:nick_name].downcase).first
+    @user = User.where("lower(nick_name) = ?", params[:session][:nick_name].mb_chars.downcase).first
     if @user
       if @user.authenticate(params[:session][:password])
         if @user.email_confirmation
