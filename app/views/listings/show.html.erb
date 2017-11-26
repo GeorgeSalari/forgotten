@@ -26,7 +26,7 @@
     <% end %>
   </div>
   <div class="all_comments">
-    <% @listing.news_comments.order!.each do |comment| %>
+    <% @listing.news_comments.order("created_at ASC").each do |comment| %>
       <div class="one_news_comment">
         <div class='profile_image'><%= image_tag(comment.user.profile_photo) %></div>
         <div>
