@@ -2,7 +2,6 @@ class ListingsController < ApplicationController
   include UsersHelper
   def index
     @listings = Listing.order(created_at: :desc).includes(:user)
-    fresh_when last_modified: @listings.maximum(:updated_at)
   end
 
   def new
