@@ -69,11 +69,10 @@
 
 .forum_group {
   margin: 30px auto;
-  height: 320px;
   width: 75%;
   background-color: rgba(27, 27, 27, 0.8);
   border-radius: 15px;
-  padding-top: 10px;
+  padding: 10px 0;
 }
 
 .forum_group_top {
@@ -140,7 +139,8 @@
 }
 
 #group_title,
-#theme_title {
+#theme_title,
+#topic_title {
   margin-left: 20px;
   padding-left: 10px;
   width: 300px;
@@ -148,7 +148,7 @@
   border-radius: 10px;
 }
 
-#new_group_submit {
+.new_group_submit {
   width: 130px;
   background: rgba(9, 9, 9, 0.8);
   border: none;
@@ -181,4 +181,42 @@
 
 .forum_theme_part p {
   margin-top: 10px;
+}
+
+.forum_theme_part p a {
+  text-decoration: none;
+  color: #c7c7c7;
+}
+
+.forum_count {
+  text-align: center;
+}
+
+.forum_bottom_divide {
+  width: 85%;
+  height: 1px;
+  border: solid 1px rgba(199,199,199,0.5);
+  margin: 0 auto;
+}
+
+.theme_bottom {
+  width: 95%;
+}
+
+.last_topic_bottom {
+  width: 93%;
+}
+
+.forum_next {
+  width: 1px;
+  border: solid 1px rgba(199,199,199,0.5);
+  margin: 0 auto
+}
+
+#cke_topic_content {
+  margin-top: 25px;
+}
+
+p.forum_last_post_p {
+  margin-top: 0;
 }

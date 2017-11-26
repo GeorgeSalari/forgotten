@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   include UsersHelper
   def show
     @user = User.find(params[:id])
+    fresh_when @user
   end
 
   def new

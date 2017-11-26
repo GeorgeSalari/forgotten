@@ -26,6 +26,12 @@ module ApplicationHelper
     when 12
       month = "Декабря"
     end
-    "#{gived_date.day} #{month} #{gived_date.year}г."
+    gived_time = gived_date.to_s(:time).split(":")
+    if gived_time[1]
+      hour = gived_time[0].to_i + 3
+      min = gived_time[1]
+      time = "в #{hour}:#{min}"
+    end
+    "#{gived_date.day} #{month} #{gived_date.year}г. #{time}"
   end
 end

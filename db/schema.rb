@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123221743) do
+ActiveRecord::Schema.define(version: 20171124075919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20171123221743) do
     t.json "last_post"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "post_count", default: 0
+    t.integer "posts_count", default: 0
     t.index ["group_id"], name: "index_themes_on_group_id"
   end
 
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20171123221743) do
     t.integer "posts_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "views_count", default: 0
     t.index ["group_id"], name: "index_topics_on_group_id"
     t.index ["theme_id"], name: "index_topics_on_theme_id"
     t.index ["user_id"], name: "index_topics_on_user_id"

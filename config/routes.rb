@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'admining_members' => 'clan_members#admining_members'
   get 'forum' => 'forum#index'
   resources :groups, except: [:index, :edit, :update]
-  resources :themes
+  resources :themes, except: [:index, :edit, :update]
   resources :topics
   resources :posts
   resources :users, only: [:index, :show] do

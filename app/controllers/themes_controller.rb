@@ -23,6 +23,22 @@ class ThemesController < ApplicationController
     end
   end
 
+  def show
+    @theme = Theme.find(params[:id])
+  end
+
+  def destroy
+    theme = Theme.find(params[:id])
+    if current_user.superadmin?
+      flash[:notice] = "Вы удалили группу: #{theme.title}!"
+      theme.destroy
+      redirect_to forum_path
+    else
+      flash[:error] = "Вы не можете удалить тему!"
+      redirect_to forum_path
+    end
+  end
+
   private
   def theme_params
     params.require(:theme).permit(:title, :group_id)

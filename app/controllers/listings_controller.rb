@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
   include UsersHelper
   def index
-    @listings = Listing.order(created_at: :desc)
+    @listings = Listing.order(created_at: :desc).includes(:user)
+    fresh_when last_modified: @listings.maximum(:updated_at)
   end
 
   def new
@@ -27,6 +28,7 @@ class ListingsController < ApplicationController
     @comment = NewsComment.new
     @listing = Listing.find(params[:id])
     @listing.increase_view_count
+    fresh_when @listing
   end
 
   def edit
