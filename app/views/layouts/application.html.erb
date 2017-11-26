@@ -38,7 +38,7 @@
           <% else %>
             <h2> Регистрация или Вход</h2>
             <%= form_for(:session, :url => url_for(:controller => "sessions", :action => "create")) do |f| %>
-              <div><%= f.text_field :nick_name, {placeholder: "Введите логин"} %></div>
+              <div><%= f.text_field :nick_name, {placeholder: "Введите игровой логин"} %></div>
               <div><%= f.password_field :password, {placeholder: "Введите пароль"}%></div>
               <div id="sign_in"><%= f.submit "Войти" %></div>
             <% end %>

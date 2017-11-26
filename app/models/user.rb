@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum role: [:user, :forgotten, :journalist, :admin, :superadmin]
 
   validates :nick_name, presence: { message: "Введите пожалуйста свой игровой логин!"}, uniqueness:
-    {
+    { case_sensitive: false,
       message: ->(object, data) do
         "Привет #{object.first_name}!, #{data[:value]} уже есть в нашей базе!"
       end
