@@ -26,11 +26,11 @@
     <% end %>
   </div>
   <div class="all_comments">
-    <% @listing.news_comments.order("created_at ASC").each do |comment| %>
+    <% @comments.each do |comment| %>
       <div class="one_news_comment">
         <div class='profile_image'><%= image_tag(comment.user.profile_photo) %></div>
         <div>
-          <p id="owner_comment_<%=comment.id%>"><b><%= link_to comment.user.nick_name, comment.user.player_link %> написал <i><%= russian_date(comment.created_at) %></i></b></p>
+          <p id="owner_comment_<%=comment.id%>" class="news_comment_owner"><%= link_to comment.user.nick_name, comment.user.player_link %> написал <i><%= russian_date(comment.created_at) %></i></p>
           <div>
             <% if !comment.quote_head.nil? && !comment.quote_head.empty? %>
               <% comment.edit_content %>
@@ -44,10 +44,13 @@
             <%= simple_format(comment.content, id: "news_comment_content_#{comment.id}") %>
             <% if logged_in? %>
               <div class="comment_button">
-                <% if current_user.id == comment.user_id %>
+                <% if current_user.id == comment.user_id || current_user.admin? || current_user.superadmin? %>
                   <button id='<%=comment.id%>' class="edit_comment" >Редактировать</button>
                   <button><%= link_to "Удалить", news_comment_path(comment), method: :delete, data: {confirm: "Are you sure?"} %></button>
                 <% else %>
+                  <button id='<%=comment.id%>' class="quote_comment">Ответить</button>
+                <% end %>
+                <% if current_user.id != comment.user_id && current_user.admin? || current_user.id != comment.user_id && current_user.superadmin? %>
                   <button id='<%=comment.id%>' class="quote_comment">Ответить</button>
                 <% end %>
               </div>

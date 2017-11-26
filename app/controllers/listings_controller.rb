@@ -27,6 +27,7 @@ class ListingsController < ApplicationController
     @comment = NewsComment.new
     @listing = Listing.find(params[:id])
     @listing.increase_view_count
+    @comments = NewsComment.order("created_at ASC").where(listing_id: @listing.id).includes(:user)
     fresh_when @listing
   end
 
