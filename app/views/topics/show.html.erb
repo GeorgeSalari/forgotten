@@ -13,6 +13,18 @@
       <%= image_tag(@topic.user.profile_photo) %>
     </div>
     <div>
+      <% if current_user.id == @topic.user_id || current_user.admin? || current_user.superadmin? %>
+      <div class="forum_topic_changes">
+        <div>
+          <%= image_tag("delete_icon.png") %>
+          <%= link_to "Удалить топик", topic_path, method: :delete, data: {confirm: "Вы уверены?"} %>
+        </div>
+        <div>
+          <%= image_tag("update_icon.ico") %>
+          <%= link_to "Редактировать", edit_topic_path(@topic, theme_id: @topic.theme_id) %>
+        </div>
+      </div>
+    <% end %>
       <%= raw @topic.content %>
     </div>
   </div>

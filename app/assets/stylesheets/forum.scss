@@ -251,3 +251,25 @@ p.forum_last_post_p {
 .forum_user_image img{
   width: 90%;
 }
+
+.forum_topic_changes {
+  margin-top: 25px;
+}
+
+.forum_topic_changes div {
+  display: inline;
+  margin-right: 60px;
+}
+
+.forum_topic_changes a {
+  text-decoration: none;
+}
+
+.forum_topic_changes a:hover {
+  text-decoration: underline;
+  color: #c7c7c7;
+}
+
+.forum_topic_changes img {
+  width: 18px;
+}

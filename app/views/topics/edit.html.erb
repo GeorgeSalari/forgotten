@@ -1,6 +1,6 @@
 <div class="forum_group">
   <div class="forum_group_name">
-    <%= link_to "Создание нового топика в теме #{@theme.title}", group_path(@theme) %>
+    <%= link_to "Редактирование топика #{@topic.title}", topic_path(@topic) %>
   </div>
   <div>
     <%= form_for @topic do |form| %>
@@ -8,7 +8,7 @@
       <%= render partial: 'topics/form', object: form %>
     </div>
     <div class="group_create_update">
-      <%= form.submit "Создать", class: "new_group_submit" %>
+      <%= form.submit "Сохранить", class: "new_group_submit" %>
     </div>
     <% end %>
   </div>

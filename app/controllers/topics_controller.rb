@@ -23,6 +23,39 @@ class TopicsController < ApplicationController
     @topic.increase_view_count
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+    @theme = Theme.find(params[:theme_id])
+  end
+
+  def update
+    topic = Topic.find(params[:id])
+    if current_user.id == topic.user_id || current_user.admin? || current_user.superadmin?
+      if topic.update(topic_params)
+        flash[:notice] = "Вы отредактировали топик: #{topic.title}"
+        redirect_to topic_path(topic)
+      else
+        flash[:error] = "Заполните все поля!"
+        render "topics/edit"
+      end
+    else
+      flash[:error] = "Вы не можете редактировать топики!"
+      redirect_to forum_path
+    end
+  end
+
+  def destroy
+    topic = Topic.find(params[:id])
+    if current_user.id == topic.user_id || current_user.admin? || current_user.superadmin?
+      flash[:notice] = "Вы удалили топик: #{topic.title}"
+      topic.destroy
+      redirect_to forum_path
+    else
+      flash[:error] = "Вы не можете удалять топики!"
+      redirect_to forum_path
+    end
+  end
+
   private
   def topic_params
     params.require(:topic).permit(:title, :content, :group_id, :theme_id, :user_id)
