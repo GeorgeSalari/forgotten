@@ -220,3 +220,34 @@
 p.forum_last_post_p {
   margin-top: 0;
 }
+
+.forum_topic_content {
+  background-color: black;
+  color: #c7c7c7;
+  width: 93%;
+  margin: 10px auto;
+  border-radius: 15px;
+  padding: 20px 20px 20px 30px;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.forum_post_top {
+  width: 90%;
+  background: rgb(9, 9, 9);
+  border-radius: 15px;
+  padding-left: 20px;
+  margin-left: -10px;
+}
+
+.forum_post_title_top {
+  padding-right: 35px;
+}
+
+.forum_user_image {
+  margin: auto;
+}
+
+.forum_user_image img{
+  width: 90%;
+}

@@ -1,0 +1,19 @@
+<div class="forum_group">
+  <div class="forum_group_name">
+    <%= link_to @topic.title, topic_path(@topic) %>
+  </div>
+  <div class="forum_topic_content">
+    <div class="forum_post_top">
+      <p>Автор: <%= link_to @topic.user.nick_name, @topic.user.player_link %></p>
+    </div>
+    <div class="forum_post_top forum_post_title_top">
+      <p>ТЕМА: <%= @topic.title %></p>
+    </div>
+    <div class="forum_user_image">
+      <%= image_tag(@topic.user.profile_photo) %>
+    </div>
+    <div>
+      <%= raw @topic.content %>
+    </div>
+  </div>
+</div>
