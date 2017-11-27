@@ -225,7 +225,7 @@ p.forum_last_post_p {
   background-color: #F5F5F5;
   color: black;
   width: 93%;
-  margin: 10px auto;
+  margin: 20px auto;
   border-radius: 15px;
   padding: 20px 20px 20px 30px;
   display: grid;
@@ -274,4 +274,25 @@ p.forum_last_post_p {
 
 .forum_topic_changes img {
   width: 18px;
+}
+
+.forum_quick_answer {
+  width: 97%;
+  margin: 30px auto;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+#submit_forum_quick_answer {
+  background: rgba(9,9,9,0.8);
+  padding: 15px 30px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  color: #C7C7C7;
+  border:none;
+  font-size: 16px;
 }

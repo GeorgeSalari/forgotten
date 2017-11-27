@@ -19,8 +19,10 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.where(id: params[:id]).includes(:user).first
     @topic.increase_view_count
+    @posts = Post.where(topic_id: @topic.id).includes(:user)
+    @post = Post.new
   end
 
   def edit
