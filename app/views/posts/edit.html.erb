@@ -1,0 +1,15 @@
+<div class="forum_group">
+  <div class="forum_group_name">
+    <%= link_to "Редактирование ответа на топик #{@post.topic.title}", topic_path(@post.topic) %>
+  </div>
+  <div>
+    <%= form_for @post do |form| %>
+    <div class="group_create_update">
+      <%= form.cktext_area :content %>
+    </div>
+    <div class="group_create_update">
+      <%= form.submit "Сохранить", class: "new_group_submit" %>
+    </div>
+    <% end %>
+  </div>
+</div>

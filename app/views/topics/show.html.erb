@@ -21,7 +21,7 @@
         </div>
         <div>
           <%= image_tag("update_icon.ico") %>
-          <%= link_to "Редактировать", edit_topic_path(@topic, theme_id: @topic.theme_id) %>
+          <%= link_to "Редактировать", edit_topic_path(@topic) %>
         </div>
       </div>
     <% end %>
@@ -51,11 +51,11 @@
             <div class="forum_topic_changes">
               <div>
                 <%= image_tag("delete_icon.png") %>
-                <%= link_to "Удалить топик", topic_path, method: :delete, data: {confirm: "Вы уверены?"} %>
+                <%= link_to "Удалить ответ", post_path(post), method: :delete, data: {confirm: "Вы уверены?"} %>
               </div>
               <div>
                 <%= image_tag("update_icon.ico") %>
-                <%= link_to "Редактировать", edit_topic_path(@topic, theme_id: @topic.theme_id) %>
+                <%= link_to "Редактировать", edit_post_path(post) %>
               </div>
             </div>
           <% end %>
@@ -72,7 +72,7 @@
             <%= f.hidden_field :topic_id, value: @topic.id %>
             <%= f.hidden_field :theme_id, value: @topic.theme.id %>
             <%= f.cktext_area :content %>
-            <div><%= f.submit "Отправить быстрый ответ", id: "submit_forum_quick_answer" %></div>
+            <div><%= f.submit "Отправить быстрый ответ", class: "submit_forum_quick_answer" %></div>
           <% end %>
         </div>
       <% end %>
