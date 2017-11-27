@@ -43,6 +43,6 @@
 
 <% if current_user.superadmin? %>
   <div id="add_new_group">
-    <%= link_to "Удалить данную тему", theme_path(@theme), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to "Удалить данную тему", theme_path(@theme), method: :delete, data: {confirm: "Вы уверены?"} %>
   </div>
 <% end %>

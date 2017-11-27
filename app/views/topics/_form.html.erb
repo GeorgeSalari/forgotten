@@ -1,0 +1,6 @@
+<%= form.label "Название топика: " %>
+<%= form.text_field :title, placeholder: "Введите название темы" %>
+<%= form.cktext_area :content %>
+<%= form.hidden_field :group_id, value: @theme.group.id %>
+<%= form.hidden_field :theme_id, value: @theme.id %>
+<%= form.hidden_field :user_id, value: current_user.id %>
