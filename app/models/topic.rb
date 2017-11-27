@@ -7,6 +7,8 @@ class Topic < ApplicationRecord
 
   after_create :create_post
 
+  before_destroy :set_last_post
+
   def increase_view_count
     self.update(views_count: (self.views_count.to_i + 1))
   end
@@ -14,5 +16,11 @@ class Topic < ApplicationRecord
   private
   def create_post
     self.posts.create self.attributes.slice("title", "content", "user_id", "theme_id")
+  end
+
+  def set_last_post
+    last_post = Post.where(theme_id: self.theme_id).last.as_json(include: :user)
+    theme = Theme.find(self.theme_id)
+    theme.update(last_post: last_post)
   end
 end
