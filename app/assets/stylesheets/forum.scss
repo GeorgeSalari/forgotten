@@ -222,8 +222,8 @@ p.forum_last_post_p {
 }
 
 .forum_topic_content {
-  background-color: black;
-  color: #c7c7c7;
+  background-color: #ecedf3;
+  color: black;
   width: 93%;
   margin: 10px auto;
   border-radius: 15px;
@@ -234,14 +234,15 @@ p.forum_last_post_p {
 
 .forum_post_top {
   width: 90%;
-  background: rgb(9, 9, 9);
+  background: #c7c7c7;
   border-radius: 15px;
   padding-left: 20px;
   margin-left: -10px;
+  color: black;
 }
 
 .forum_post_title_top {
-  padding-right: 35px;
+  padding-right: 55px;
 }
 
 .forum_user_image {
@@ -263,11 +264,12 @@ p.forum_last_post_p {
 
 .forum_topic_changes a {
   text-decoration: none;
+  color: #570484;
 }
 
 .forum_topic_changes a:hover {
   text-decoration: underline;
-  color: #c7c7c7;
+  color: black;
 }
 
 .forum_topic_changes img {
