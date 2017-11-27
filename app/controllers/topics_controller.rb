@@ -27,13 +27,13 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-    @theme = Theme.find(params[:theme_id])
+    @theme = Theme.find(@topic.theme_id)
   end
 
   def update
     topic = Topic.find(params[:id])
     if current_user.id == topic.user_id || current_user.admin? || current_user.superadmin?
-      if topic.update(topic_params)
+      if topic.update(topic_params.reject{|_, v| v.blank?})
         flash[:notice] = "Вы отредактировали топик: #{topic.title}"
         redirect_to topic_path(topic)
       else
