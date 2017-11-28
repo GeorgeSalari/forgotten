@@ -45,6 +45,7 @@
   <div class="forum_group no_rights">
     <h3>Добрый день <%= current_user.nick_name %></h3>
     <p>У вас нет прав на просмотр данной темы!</p>
+    <p>Что бы увидеть содержимое, необходимо <%= link_to "вступить", topic_path(14) %> в клан xD</p>
   </div>
 <% end %>
 
