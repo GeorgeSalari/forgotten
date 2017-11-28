@@ -1,6 +1,5 @@
 class ThemesController < ApplicationController
   layout "layout_forum"
-  include UsersHelper
 
   def new
     @theme = Theme.new
@@ -10,6 +9,7 @@ class ThemesController < ApplicationController
   def create
     if current_user.superadmin? || current_user.admin?
       theme = Theme.new(theme_params)
+      theme.acces_for_all = theme.group.acces_for_all
       if theme.save
         flash[:notice] = "Вы создали тему: #{theme.title}!"
         redirect_to group_path(theme.group_id)
@@ -24,8 +24,9 @@ class ThemesController < ApplicationController
   end
 
   def show
-    @theme = Theme.find(params[:id])
-    Theme.set_location(@theme)
+    theme = check_access(Theme.all)
+    @theme = check_access_when_show(theme, params[:id])
+    Theme.set_location(@theme) unless @theme.nil?
   end
 
   def destroy

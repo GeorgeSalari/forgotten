@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   layout "layout_forum"
-  include UsersHelper
 
   def new
     @group = Group.new
@@ -9,6 +8,7 @@ class GroupsController < ApplicationController
   def create
     if current_user.superadmin?
       @group = Group.new(group_params)
+      @group.acces_for_all = false if params[:group][:acces_for_all].to_i == 0
       if @group.save
         flash[:notice] = "Вы создали группу: #{@group.title}!"
         redirect_to forum_path
@@ -23,8 +23,9 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    Group.set_location_show(@group)
+    group = check_access(Group.all)
+    @group  = check_access_when_show(group, params[:id])
+    Group.set_location_show(@group) unless @group.nil?
   end
 
   def destroy

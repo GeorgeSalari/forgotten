@@ -1,5 +1,4 @@
 class NewsCommentsController < ApplicationController
-  include UsersHelper
   def create
     @comment = NewsComment.new(comment_params)
     listing = Listing.find(@comment.listing_id)
