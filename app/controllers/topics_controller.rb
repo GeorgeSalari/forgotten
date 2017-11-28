@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
   layout "layout_forum"
-  include UsersHelper
 
   def new
     @topic = Topic.new
@@ -9,6 +8,7 @@ class TopicsController < ApplicationController
 
   def create
     topic = Topic.new(topic_params)
+    topic.acces_for_all = topic.theme.acces_for_all
     if topic.save
       flash[:notice] = "Вы создали топик: #{topic.title}"
       redirect_to topic_path(topic)
@@ -19,11 +19,14 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.where(id: params[:id]).includes(:user).first
-    @topic.increase_view_count
-    @posts = Post.where(topic_id: @topic.id).includes(:user)
+    topics = check_access(Topic.all).includes(:user)
+    @topic = check_access_when_show(topics, params[:id])
     @post = Post.new
-    Topic.set_location(@topic)
+    unless @topic.nil?
+      @topic.increase_view_count
+      @posts = Post.where(topic_id: @topic.id).includes(:user)
+      Topic.set_location(@topic)
+    end
   end
 
   def edit

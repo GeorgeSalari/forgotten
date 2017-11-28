@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124075919) do
+ActiveRecord::Schema.define(version: 20171128103925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20171124075919) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "acces_for_all", default: true
   end
 
   create_table "listings", force: :cascade do |t|
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171124075919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "posts_count", default: 0
+    t.boolean "acces_for_all", default: true
     t.index ["group_id"], name: "index_themes_on_group_id"
   end
 
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 20171124075919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "views_count", default: 0
+    t.boolean "acces_for_all", default: true
     t.index ["group_id"], name: "index_topics_on_group_id"
     t.index ["theme_id"], name: "index_topics_on_theme_id"
     t.index ["user_id"], name: "index_topics_on_user_id"

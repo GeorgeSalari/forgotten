@@ -12,14 +12,14 @@ class Topic < ApplicationRecord
 
   after_destroy :set_last_post
 
-  def self.set_location(object)
+  def self.set_location(gived_object)
     $location = ["Форум"]
-    $location << object.group.title
-    $location << object.group.id
-    $location << object.theme.title
-    $location << object.theme.id
-    $location << object.title
-    $location << object.id
+    $location << gived_object.group.title
+    $location << gived_object.group.id
+    $location << gived_object.theme.title
+    $location << gived_object.theme.id
+    $location << gived_object.title
+    $location << gived_object.id
   end
 
   def increase_view_count

@@ -1,5 +1,4 @@
 class ClanMembersController < ApplicationController
-  include UsersHelper
   def index
     @clan_members = ClanMember.show_members(params[:department], params[:order_members])
     fresh_when last_modified: @clan_members.maximum(:updated_at)

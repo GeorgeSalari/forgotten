@@ -7,6 +7,10 @@
     <div class="group_create_update">
       <%= f.label "Название группы: " %>
       <%= f.text_field :title, placeholder: "Введите название группы" %>
+      <br>
+      <br>
+      <%= f.label "Для всех " %>
+      <%= f.check_box :acces_for_all %>
     </div>
     <div class="group_create_update">
       <%= f.submit "Создать", class: "new_group_submit" %>

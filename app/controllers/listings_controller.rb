@@ -1,5 +1,4 @@
 class ListingsController < ApplicationController
-  include UsersHelper
   def index
     @listings = Listing.order(created_at: :desc).includes(:user)
   end
