@@ -33,10 +33,17 @@
           Форум Клана Забытые Богом
         </div>
         <div class="main_forum_container">
-          <%= link_to "Форум", forum_path %> <div class="next"> </div>
-          <%= link_to "Для всех", theme_path(1) %> <div class="next"> </div>
-          <%= link_to "Отдел кадров", topic_path(1) %> <div class="next"> </div>
-          <%= link_to "Вступление", post_path(1) %>
+          <%= link_to "Форум", forum_path %>
+          <% if $location.length >= 3 %>
+            <div class="next" id="first_next_devide"> </div>
+            <%= link_to "#{$location[1]}", group_path($location[2]) %> <div class="next" id="second_next_devide"> </div>
+          <% end %>
+          <% if $location.length >= 5 %>
+            <%= link_to "#{$location[3]}", theme_path($location[4]) %> <div class="next" id="third_next_devide"> </div>
+          <% end %>
+          <% if $location.length >= 7 %>
+            <%= link_to "#{$location[5]}", topic_path($location[6]) %>
+          <% end %>
         </div>
       </div>
       <%= yield %>

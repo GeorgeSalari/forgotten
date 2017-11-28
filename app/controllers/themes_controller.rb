@@ -25,6 +25,7 @@ class ThemesController < ApplicationController
 
   def show
     @theme = Theme.find(params[:id])
+    Theme.set_location(@theme)
   end
 
   def destroy

@@ -3,5 +3,6 @@ class ForumController < ApplicationController
 
   def index
     @groups = Group.all.includes(:themes)
+    Group.set_location
   end
 end

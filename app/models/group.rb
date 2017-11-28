@@ -4,4 +4,15 @@ class Group < ApplicationRecord
   has_many :posts, through: :topics, dependent: :destroy
 
   validates :title, presence: true
+
+  def self.set_location
+    $location = ["Форум"]
+  end
+
+  def self.set_location_show(object)
+    $location = ["Форум"]
+    $location << object.title
+    $location << object.id
+  end
+
 end

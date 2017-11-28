@@ -24,6 +24,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    Group.set_location_show(@group)
   end
 
   def destroy

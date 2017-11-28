@@ -23,6 +23,7 @@ class TopicsController < ApplicationController
     @topic.increase_view_count
     @posts = Post.where(topic_id: @topic.id).includes(:user)
     @post = Post.new
+    Topic.set_location(@topic)
   end
 
   def edit
