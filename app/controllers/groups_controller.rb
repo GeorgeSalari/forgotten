@@ -23,9 +23,17 @@ class GroupsController < ApplicationController
   end
 
   def show
-    group = check_access(Group.all)
-    @group  = check_access_when_show(group, params[:id])
-    Group.set_location_show(@group) unless @group.nil?
+    if logged_in?
+      group  = check_access_when_show(check_access(Group.all), params[:id])
+      unless group.nil?
+        @group = group
+        Group.set_location_show(@group)
+      else
+        redirect_to no_access_path
+      end
+    else
+      redirect_to please_log_in_path
+    end
   end
 
   def destroy

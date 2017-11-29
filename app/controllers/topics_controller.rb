@@ -19,13 +19,19 @@ class TopicsController < ApplicationController
   end
 
   def show
-    topics = check_access(Topic.all).includes(:user)
-    @topic = check_access_when_show(topics, params[:id])
-    @post = Post.new
-    unless @topic.nil?
-      @topic.increase_view_count
-      @posts = Post.where(topic_id: @topic.id).includes(:user)
-      Topic.set_location(@topic)
+    if logged_in?
+      topic = check_access_when_show(check_access(Topic.all).includes(:user), params[:id])
+      unless topic.nil?
+        @topic = topic
+        @post = Post.new
+        @topic.increase_view_count
+        @posts = Post.where(topic_id: @topic.id).includes(:user)
+        Topic.set_location(@topic)
+      else
+        redirect_to no_access_path
+      end
+    else
+      redirect_to please_log_in_path
     end
   end
 

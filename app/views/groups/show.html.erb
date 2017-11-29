@@ -1,54 +1,46 @@
-<% if @group %>
-  <div class="forum_group_top">
-    <div><p>Название</p></div>
-    <div><p>Тем</p></div>
-    <div><p>Сообщений</p></div>
-    <div><p>Последний топик</p></div>
-  </div>
+<div class="forum_group_top">
+  <div><p>Название</p></div>
+  <div><p>Тем</p></div>
+  <div><p>Сообщений</p></div>
+  <div><p>Последний топик</p></div>
+</div>
 
-  <div class="forum_group">
-    <div class="forum_group_name">
-      <%= link_to @group.title, group_path(@group) %>
-    </div>
-    <% @group.themes.each do |theme| %>
-      <div class="forum_theme">
-        <div class="forum_theme_part">
-          <p><%= link_to theme.title, theme_path(theme) %></p>
-        </div>
-        <div class="forum_next"> </div>
-        <div class="forum_theme_part forum_count">
-          <p><%= theme.topics_count %></p>
-        </div>
-        <div class="forum_next"> </div>
-        <div class="forum_theme_part forum_count">
-          <p><%= theme.posts_count %></p>
-        </div>
-        <div class="forum_next"> </div>
-        <div class="forum_theme_part">
-          <p class="forum_last_post_p"><%= "От пользователя #{theme.last_post["user"]["nick_name"]}" unless theme.last_post.nil? %><br><%= "#{russian_date(theme.last_post["created_at"].to_datetime)}" unless theme.last_post.nil? %></p>
-        </div>
-        <div class="forum_bottom_divide theme_bottom"></div>
-        <div></div>
-        <div class="forum_bottom_divide"></div>
-        <div></div>
-        <div class="forum_bottom_divide"></div>
-        <div></div>
-        <div class="forum_bottom_divide last_topic_bottom"></div>
-        <div></div>
+<div class="forum_group">
+  <div class="forum_group_name">
+    <%= link_to @group.title, group_path(@group) %>
+  </div>
+  <% @group.themes.each do |theme| %>
+    <div class="forum_theme">
+      <div class="forum_theme_part">
+        <p><%= link_to theme.title, theme_path(theme) %></p>
       </div>
-    <% end %>
-    <div class="create_new_theme">
-      <%= link_to "Создать новую тему в группе #{@group.title}", new_theme_path(group_id: @group.id) %>
+      <div class="forum_next"> </div>
+      <div class="forum_theme_part forum_count">
+        <p><%= theme.topics_count %></p>
+      </div>
+      <div class="forum_next"> </div>
+      <div class="forum_theme_part forum_count">
+        <p><%= theme.posts_count %></p>
+      </div>
+      <div class="forum_next"> </div>
+      <div class="forum_theme_part">
+        <p class="forum_last_post_p"><%= "От пользователя #{theme.last_post["user"]["nick_name"]}" unless theme.last_post.nil? %><br><%= "#{russian_date(theme.last_post["created_at"].to_datetime)}" unless theme.last_post.nil? %></p>
+      </div>
+      <div class="forum_bottom_divide theme_bottom"></div>
+      <div></div>
+      <div class="forum_bottom_divide"></div>
+      <div></div>
+      <div class="forum_bottom_divide"></div>
+      <div></div>
+      <div class="forum_bottom_divide last_topic_bottom"></div>
+      <div></div>
     </div>
+  <% end %>
+  <div class="create_new_theme">
+    <%= link_to "Создать новую тему в группе #{@group.title}", new_theme_path(group_id: @group.id) %>
   </div>
-<% else %>
-  <div class="forum_group no_rights">
-    <h3>Добрый день <%= current_user.nick_name %></h3>
-    <p>У вас нет прав на просмотр данной темы!</p>
-    <p>Что бы увидеть содержимое, необходимо <%= link_to "вступить", topic_path(14) %> в клан xD</p>
-    <p>Если вы уже в клане, обратитесь к Главе</p>
-  </div>
-<% end %>
+</div>
+
 <% if current_user.superadmin? %>
   <div id="add_new_group">
     <%= link_to "Удалить данную группу", group_path(@group), method: :delete, data: {confirm: "Вы уверены?"} %>
