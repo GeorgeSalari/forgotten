@@ -27,4 +27,6 @@ Rails.application.routes.draw do
       get "metrics" # разнообразная статистика
     end
   end
+  get 'please_log_in' => 'forum#please_log_in'
+  get 'no_access' => "forum#no_access"
 end

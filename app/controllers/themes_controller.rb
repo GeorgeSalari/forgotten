@@ -24,9 +24,17 @@ class ThemesController < ApplicationController
   end
 
   def show
-    theme = check_access(Theme.all)
-    @theme = check_access_when_show(theme, params[:id])
-    Theme.set_location(@theme) unless @theme.nil?
+    if logged_in?
+      theme = check_access_when_show(check_access(Theme.all), params[:id])
+      unless theme.nil?
+        @theme = theme
+        Theme.set_location(@theme)
+      else
+        redirect_to no_access_path
+      end
+    else
+      redirect_to please_log_in_path
+    end
   end
 
   def destroy
