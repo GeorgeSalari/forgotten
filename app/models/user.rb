@@ -67,11 +67,19 @@ class User < ApplicationRecord
     end
   end
 
+  def reset_password_token
+    User.password_token(self)
+  end
+
   private
 
   def confirmation_token
     if self.confirm_token.blank?
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
+  end
+
+  def self.password_token(user)
+    user.update(reset_password_token: SecureRandom.urlsafe_base64.to_s)
   end
 end

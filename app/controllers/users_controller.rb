@@ -52,6 +52,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def reset_password
+  end
+
+  def email_for_new_password
+    if User.exists?(email: params[:email])
+      user = User.find_by(email: params[:email])
+      user.reset_password_token
+      UserMailer.reset_user_password(user).deliver
+    else
+      flash[:error] = "Нет такой почты в базе данных!"
+      redirect_to '/reset_password'
+    end
+  end
+
+  def new_password
+    byebug
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :gender, :birthday, :nick_name, :player_link, :email, :password, :profile_photo)
