@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def new_password
-    byebug
+
   end
 
   private
