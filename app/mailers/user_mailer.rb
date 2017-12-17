@@ -6,6 +6,6 @@ class UserMailer < ApplicationMailer
 
   def reset_user_password(user)
     @user = user
-    mail(:to => '#{user.full_name} <#{user.email}>', subject: "Восстановления пароля.")
+    mail(:to => '#{user.email}', subject: "Восстановления пароля.")
   end
 end
