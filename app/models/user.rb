@@ -67,7 +67,7 @@ class User < ApplicationRecord
     end
   end
 
-  def reset_password_token
+  def set_password_token
     User.password_token(self)
   end
 

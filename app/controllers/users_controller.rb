@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def email_for_new_password
     if User.exists?(email: params[:email])
       user = User.find_by(email: params[:email])
-      user.reset_password_token
+      user.set_password_token
       UserMailer.reset_user_password(user).deliver_now
     else
       flash[:error] = "Нет такой почты в базе данных!"
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def new_password
-
+    byebug
   end
 
   private
