@@ -53,6 +53,7 @@ class UsersController < ApplicationController
   end
 
   def reset_password
+
   end
 
   def email_for_new_password
@@ -67,7 +68,13 @@ class UsersController < ApplicationController
   end
 
   def new_password
-    byebug
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      @user = user
+    else
+      flash[:error] = "Такого пользователя нет!"
+      redirect_to '/'
+    end
   end
 
   private

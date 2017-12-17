@@ -80,6 +80,8 @@ class User < ApplicationRecord
   end
 
   def self.password_token(user)
-    user.update(reset_password_token: SecureRandom.urlsafe_base64.to_s)
+    if user.reset_password_token.empty?
+      user.update(reset_password_token: SecureRandom.urlsafe_base64.to_s)
+    end
   end
 end
