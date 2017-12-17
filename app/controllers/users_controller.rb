@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.id == current_user.id || current_user.superadmin?
+    if current_user.nil? || @user.id == current_user.id || current_user.superadmin?
       if @user.update(user_params.reject{|_, v| v.blank?})
         flash[:notice] = "Вы отредактировали свой профиль!"
         redirect_to user_path(@user)
