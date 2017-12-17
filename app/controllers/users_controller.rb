@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def new_password
-    user = User.find_by_confirm_token(params[:id])
+    user = User.find_by_reset_password_token(params[:id])
     if user
       @user = user
     else
