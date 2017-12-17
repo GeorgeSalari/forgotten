@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     if User.exists?(email: params[:email])
       user = User.find_by(email: params[:email])
       user.reset_password_token
-      UserMailer.reset_user_password(user).deliver
+      UserMailer.reset_user_password(user).deliver_now
     else
       flash[:error] = "Нет такой почты в базе данных!"
       redirect_to '/reset_password'
