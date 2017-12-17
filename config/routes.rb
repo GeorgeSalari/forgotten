@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy, :index] do
     member do
       get :confirm_email
+      get :new_password
     end
   end
   post 'sign_in' => 'sessions#create', as: :sign_in
@@ -29,4 +30,6 @@ Rails.application.routes.draw do
   end
   get 'please_log_in' => 'forum#please_log_in'
   get 'no_access' => "forum#no_access"
+  get "reset_password" => "users#reset_password"
+  post 'email_for_new_password' => "users#email_for_new_password"
 end

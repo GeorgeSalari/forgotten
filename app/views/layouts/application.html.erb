@@ -43,6 +43,7 @@
               <div id="sign_in"><%= f.submit "Войти" %></div>
             <% end %>
             <div id="sign_up"><%= button_to "Регистрация", new_user_path, :method => "get" %></div>
+            <div id="user_forgot_password"><%= link_to "Забыли пароль?", reset_password_path %></div>
           <% end %>
         </div>
         <div class='menu_footer'></div>
