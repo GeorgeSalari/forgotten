@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217055852) do
+ActiveRecord::Schema.define(version: 20171218040814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,22 @@ ActiveRecord::Schema.define(version: 20171217055852) do
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_news_comments_on_listing_id"
     t.index ["user_id"], name: "index_news_comments_on_user_id"
+  end
+
+  create_table "player_levels", force: :cascade do |t|
+    t.integer "level"
+    t.integer "money"
+    t.integer "experience"
+    t.integer "stat"
+  end
+
+  create_table "player_ups", force: :cascade do |t|
+    t.integer "up"
+    t.integer "money"
+    t.integer "stat"
+    t.integer "experience"
+    t.bigint "player_level_id"
+    t.index ["player_level_id"], name: "index_player_ups_on_player_level_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -132,6 +148,7 @@ ActiveRecord::Schema.define(version: 20171217055852) do
   end
 
   add_foreign_key "listings", "users"
+  add_foreign_key "player_ups", "player_levels"
   add_foreign_key "posts", "themes"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"

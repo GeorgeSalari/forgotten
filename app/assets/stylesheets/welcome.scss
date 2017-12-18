@@ -230,3 +230,52 @@ span.blue {
 .news_content h4 {
   padding-left: 30px;
 }
+
+.instruction p {
+  padding: 0 30px;
+  margin-top:-10px;
+}
+
+#experience_calc_form {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding-left: 30px;
+  margin-top: 40px;
+}
+
+#experience_calc_form div {
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#experience_calc_form div input{
+  width: 87%;
+  font-size: 20px;
+  height: 2em;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+#experience_calc_respons {
+  width: 70%;
+  margin: 40px auto;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+#experience_calc_respons div.odd{
+  margin:3px;
+  background-color: #f4a342;
+  padding: 5px;
+}
+
+#experience_calc_respons div.even{
+  margin:3px;
+  background-color: #f2ca8a;
+  padding: 5px;
+}
+
+
+
