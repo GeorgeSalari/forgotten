@@ -1,0 +1,54 @@
+<div class="news_content">
+  <h1>Калькулятор опыта</h1>
+  <div class="instruction">
+    <h3>Подсказки:</h3>
+    <p>*Что бы воспользоваться калькулятором, введите свой опыт.</p>
+    <p>*Что бы посчитать сколько осталось до определенного уровня, введите свой опыт и желаемый уровень.</p>
+  </div>
+  <div>
+    <%= form_tag("/check_experience") do -%>
+      <div id="experience_calc_form">
+        <div>
+          <%= label_tag "Текущий опыт" %>
+        </div>
+        <div>
+          <%= text_field_tag :current_experience %>
+        </div>
+        <div>
+          <%= label_tag "Желаемый уровень (не обязательно)" %>
+        </div>
+        <div>
+          <%= text_field_tag :desired_level %>
+        </div>
+      </div>
+      <div class="submit_button">
+        <%= submit_tag "Рассчитать!" %>
+      </div>
+    <% end -%>
+  </div>
+  <div id="experience_calc_respons">
+    <div class="odd">Текущий уровень: </div>
+    <div class="odd"></div>
+    <div class="even">Текущий опыт: </div>
+    <div class="even"></div>
+    <div class="odd">Текущий ап: </div>
+    <div class="odd"></div>
+    <div class="even">Опыт до апа: </div>
+    <div class="even"></div>
+    <div class="odd">Ап завершон на: </div>
+    <div class="odd"></div>
+    <div class="even">Опыт до уровня: </div>
+    <div class="even"></div>
+    <div class="odd">Уровень завершон на: </div>
+    <div class="odd"></div>
+    <div class="even">Соток за этот ап: </div>
+    <div class="even"></div>
+    <div class="odd">Соток за уровень: </div>
+    <div class="odd"></div>
+    <div class="even">Всего соток заработано: </div>
+    <div class="even"></div>
+    <div class="odd">Опыта до желаемого уровня: </div>
+    <div class="odd"></div>
+  </div>
+<div class='separator'></div>
+</div>

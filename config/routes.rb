@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   end
   post 'sign_in' => 'sessions#create', as: :sign_in
   delete 'log_out' => 'sessions#destroy', as: :log_out
-  get 'joining' => 'welcome#joining', as: :joining
-  get 'charter' => 'welcome#charter', as: :charter
-  get 'legend' => 'welcome#legend', as: :legend
+  get 'joining' => 'welcome#joining'
+  get 'charter' => 'welcome#charter'
+  get 'legend' => 'welcome#legend'
+  get 'experience_calc' => 'welcome#experience_calc'
+  post 'check_experience' => 'welcome#check_experience'
   resources :listings
   resources :news_comments, only: [:create, :update, :destroy]
   resources :clan_members, except: [:show]

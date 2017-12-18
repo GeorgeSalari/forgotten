@@ -84,7 +84,7 @@
           <ul>
             <li><a href="#">Примерочная</a></li>
             <li><a href="#">Таймер заклятий</a></li>
-            <li><a href="#">Таблица опыта</a></li>
+            <li id='menu_experience_calc'><%= link_to "Калькулятор опыта", experience_calc_path %></li>
           </ul>
         </div>
         <div class='menu_footer'></div>
@@ -124,6 +124,11 @@
             $(this).children().removeClass('active_menu');
           });
           $('#menu_clan_members').children().addClass('active_menu');
+        } else if (window.location.href.indexOf("experience_calc") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $('#menu_experience_calc').children().addClass('active_menu');
         } else if (window.location.pathname == "/") {
           all_li.each(function() {
             $(this).children().removeClass('active_menu');

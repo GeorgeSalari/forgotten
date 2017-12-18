@@ -7,4 +7,12 @@ class WelcomeController < ApplicationController
 
   def legend
   end
+
+  def experience_calc
+
+  end
+
+  def check_experience
+    byebug
+  end
 end
