@@ -22,33 +22,50 @@
         </div>
       </div>
       <div class="submit_button">
-        <%= submit_tag "Рассчитать!" %>
+        <%= submit_tag "Рассчитать!", id:"experience_calc_submit" %>
+        <%= image_tag("loading_spinner.gif", class:"hidden", id:"loading_spinner") %>
       </div>
     <% end -%>
   </div>
-  <div id="experience_calc_respons">
-    <div class="odd">Текущий уровень: </div>
-    <div class="odd"></div>
-    <div class="even">Текущий опыт: </div>
-    <div class="even"></div>
-    <div class="odd">Текущий ап: </div>
-    <div class="odd"></div>
-    <div class="even">Опыт до апа: </div>
-    <div class="even"></div>
-    <div class="odd">Ап завершон на: </div>
-    <div class="odd"></div>
-    <div class="even">Опыт до уровня: </div>
-    <div class="even"></div>
-    <div class="odd">Уровень завершон на: </div>
-    <div class="odd"></div>
-    <div class="even">Соток за этот ап: </div>
-    <div class="even"></div>
-    <div class="odd">Соток за уровень: </div>
-    <div class="odd"></div>
-    <div class="even">Всего соток заработано: </div>
-    <div class="even"></div>
-    <div class="odd">Опыта до желаемого уровня: </div>
-    <div class="odd"></div>
-  </div>
+    <div id="experience_calc_respons" class="hidden" >
+      <div class="odd">Текущий уровень: </div>
+      <div class="odd center" id="current_level"></div>
+
+      <div class="even">Текущий опыт: </div>
+      <div class="even center" id="gived_experience"></div>
+
+      <div class="odd">Текущий ап: </div>
+      <div class="odd center" id="current_up"></div>
+
+      <div class="even">Опыт до следующего апа: </div>
+      <div class="even center" id="next_up"></div>
+
+      <div class="odd">Ап завершон на: </div>
+      <div class="odd center" id="up_finish"></div>
+
+      <div class="even">Опыт до уровня: </div>
+      <div class="even center" id="next_level"></div>
+
+      <div class="odd">Уровень завершон на: </div>
+      <div class="odd center" id="level_finish"></div>
+
+      <div class="even">Соток за этот ап: </div>
+      <div class="even center" id="money_this_up"></div>
+
+      <div class="odd">Осталось соток за этот уровень: </div>
+      <div class="odd center" id="money_to_next_level"></div>
+
+      <div class="even">Всего соток за весь уровень: </div>
+      <div class="even center" id="money_this_level"></div>
+
+      <div class="odd">Всего соток заработано: </div>
+      <div class="odd center" id="money_total"></div>
+
+      <div class="even">Всего увеличения статов: </div>
+      <div class="even center" id="increase_stats"></div>
+
+      <div class="odd">Опыта до желаемого уровня: </div>
+      <div class="odd center" id="experience_to_desired_level"></div>
+    </div>
 <div class='separator'></div>
 </div>
