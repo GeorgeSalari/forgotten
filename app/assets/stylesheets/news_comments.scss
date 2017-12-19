@@ -84,7 +84,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .quote_div {
@@ -111,4 +111,8 @@
 
 .comment_button {
   margin-top: 45px;
+}
+
+.center {
+  text-align: center;
 }
