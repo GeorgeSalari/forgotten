@@ -4,6 +4,7 @@ class PlayerLevel < ApplicationRecord
   def self.check_gived_experience(gived_experience, gived_level)
     result = []
 
+    byebug
     # find player level
     player_level = self.where('experience <= ?', gived_experience).last
     result << player_level.level
@@ -12,19 +13,29 @@ class PlayerLevel < ApplicationRecord
     result << gived_experience.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1 ")
 
     # find player up
-    player_up = player_level.player_ups.where('experience <= ?', gived_experience).last
-    result << player_up.up
+    unless player_level.player_ups.where('experience <= ?', gived_experience).last.nil?
+        player_up = player_level.player_ups.where('experience <= ?', gived_experience).last
+        result << player_up.up
+    else
+        player_up = 0
+        result << player_up
+    end
 
     # experience to next up
     # find next up
-    next_up = PlayerUp.find_by(player_level_id: player_up.player_level_id, up: player_up.up + 1)
+    next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up.up + 1)
     next_up_exp = next_up.experience - gived_experience.to_i
     result << next_up_exp.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1 ")
 
     # up finish, find %
     # total exp for up
-    total_exp = next_up.experience - player_up.experience
-    pass_exp = gived_experience.to_i - player_up.experience
+    if player_up > 0
+        total_exp = next_up.experience - player_up.experience
+        pass_exp = gived_experience.to_i - player_up.experience
+    else
+        total_exp = next_up.experience - player_level.experience
+        pass_exp = gived_experience.to_i - player_level.experience
+    end
     percent_up_exp = pass_exp.to_f / total_exp * 100
     result << "#{percent_up_exp.round}%"
 
