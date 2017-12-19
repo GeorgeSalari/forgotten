@@ -22,8 +22,12 @@ class PlayerLevel < ApplicationRecord
 
     # experience to next up
     # find next up
-    if player_up > 0
-        next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up.up + 1)
+    if player_up.up
+        unless PlayerUp.find_by(player_level_id: player_level.id, up: player_up.up + 1).nil?
+            next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up.up + 1)
+        else
+            next_up = PlayerLevel.find_by(level: player_level.level+1)
+        end
     else
         next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up + 1)
     end
@@ -32,7 +36,7 @@ class PlayerLevel < ApplicationRecord
 
     # up finish, find %
     # total exp for up
-    if player_up > 0
+    if player_up.up
         total_exp = next_up.experience - player_up.experience
         pass_exp = gived_experience.to_i - player_up.experience
     else
