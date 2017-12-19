@@ -4,7 +4,6 @@ class PlayerLevel < ApplicationRecord
   def self.check_gived_experience(gived_experience, gived_level)
     result = []
 
-    byebug
     # find player level
     player_level = self.where('experience <= ?', gived_experience).last
     result << player_level.level
