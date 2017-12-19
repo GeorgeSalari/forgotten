@@ -23,7 +23,11 @@ class PlayerLevel < ApplicationRecord
 
     # experience to next up
     # find next up
-    next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up.up + 1)
+    if player_up > 0
+        next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up.up + 1)
+    else
+        next_up = PlayerUp.find_by(player_level_id: player_level.id, up: player_up + 1)
+    end
     next_up_exp = next_up.experience - gived_experience.to_i
     result << next_up_exp.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1 ")
 
