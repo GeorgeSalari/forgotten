@@ -5,6 +5,7 @@ class ForumController < ApplicationController
     if logged_in?
       @groups = check_access(Group.all).includes(:themes)
       Group.set_location
+      fresh_when etag: [@groups, current_user]
     else
       redirect_to please_log_in_path
     end

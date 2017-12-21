@@ -27,6 +27,7 @@ class TopicsController < ApplicationController
         @topic.increase_view_count
         @posts = Post.where(topic_id: @topic.id).includes(:user)
         Topic.set_location(@topic)
+        fresh_when etag: [@topic, current_user, @posts]
       else
         redirect_to no_access_path
       end
