@@ -28,6 +28,7 @@ class GroupsController < ApplicationController
       unless group.nil?
         @group = group
         Group.set_location_show(@group)
+        fresh_when etag: @group
       else
         redirect_to no_access_path
       end

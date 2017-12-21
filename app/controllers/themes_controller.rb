@@ -29,6 +29,7 @@ class ThemesController < ApplicationController
       unless theme.nil?
         @theme = theme
         Theme.set_location(@theme)
+        fresh_when etag: @theme
       else
         redirect_to no_access_path
       end

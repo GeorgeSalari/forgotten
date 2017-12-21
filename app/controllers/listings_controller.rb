@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
     @listings = Listing.order(created_at: :desc).includes(:user)
+    fresh_when etag: @listings
   end
 
   def new
@@ -27,7 +28,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @listing.increase_view_count
     @comments = NewsComment.order("created_at ASC").where(listing_id: @listing.id).includes(:user)
-    fresh_when @listing
+    fresh_when etag: @comments
   end
 
   def edit
