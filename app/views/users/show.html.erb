@@ -13,8 +13,10 @@
     <div><p><b>Пол:</b>  <%= @user.gender %></p></div>
     <div><p><b>День рождения:</b>  <%= russian_date(@user.birthday) if @user.birthday %></p></div>
   </div>
-  <div class="submit_button">
-    <button><%= link_to "Редактировать", edit_user_path(@user) %></button>
-  </div>
+  <% if logged_in? && (@user.id == current_user.id || current_user.superadmin?) %>
+    <div class="submit_button">
+      <button><%= link_to "Редактировать", edit_user_path(@user) %></button>
+    </div>
+  <% end %>
   <div class='separator'></div>
 </div>
