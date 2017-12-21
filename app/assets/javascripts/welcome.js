@@ -1,5 +1,5 @@
-$(document).ready(function(){
-  $("#experience_calc_submit").click(function(e){
+$(document).on('turbolinks:load',function(){
+  $("#experience_calc_submit").on('click touch', function (e){
     $("#experience_calc_submit").addClass("hidden");
     $("#loading_spinner").removeClass("hidden");
     e.preventDefault();
