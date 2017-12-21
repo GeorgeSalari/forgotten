@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :topic, :counter_cache => true
-  belongs_to :theme, :counter_cache => true
-  belongs_to :user
+  belongs_to :topic, :counter_cache => true, touch: true
+  belongs_to :theme, :counter_cache => true, touch: true
+  belongs_to :user, touch: true
 
   validates :content, presence: true
 

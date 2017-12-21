@@ -1,8 +1,8 @@
 class Topic < ApplicationRecord
   has_many :posts, dependent: :destroy
-  belongs_to :theme, :counter_cache => true
-  belongs_to :user
-  belongs_to :group
+  belongs_to :theme, :counter_cache => true, touch: true
+  belongs_to :user, touch: true
+  belongs_to :group, touch: true
 
   validates_presence_of :theme, :title, :content
 

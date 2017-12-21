@@ -1,7 +1,7 @@
 class Theme < ApplicationRecord
   has_many :topics, dependent: :destroy
   has_many :posts, dependent: :destroy
-  belongs_to :group
+  belongs_to :group, touch: true
 
   validates :title, presence: true
 

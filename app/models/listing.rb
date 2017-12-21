@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, touch: true
   has_many :news_comments, dependent: :destroy
 
   validates :title, :short_content, :full_content, :user_id, presence: true
