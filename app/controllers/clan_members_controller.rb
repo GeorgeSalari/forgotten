@@ -2,6 +2,7 @@ class ClanMembersController < ApplicationController
 
   def index
     @clan_members = ClanMember.show_members(params[:department], params[:order_members])
+    fresh_when etag: [@clan_members, current_user]
   end
 
   def new

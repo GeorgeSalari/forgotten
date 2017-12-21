@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    fresh_when etag: @user
+    fresh_when etag: [@user, current_user]
   end
 
   def new
