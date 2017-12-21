@@ -204,6 +204,7 @@ div#sign_up input:hover {
   color:black;
 }
 
+.reset_password_form input:focus,
 div#sign_up input:focus,
 div#sign_in input:focus {
   outline: none;
@@ -277,5 +278,21 @@ span.blue {
   padding: 5px;
 }
 
+.reset_password_form {
+  margin-bottom: 20px;
+}
+
+.reset_password_form label {
+  padding-left: 30px;
+}
+
+.reset_password_form input {
+  width: 40%;
+  height: 2em;
+  font-size: 18px;
+  border-radius: 15px;
+  padding-left: 15px;
+  margin-left: 10px;
+}
 
 
