@@ -8,6 +8,7 @@
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
       crossorigin="anonymous">
     </script>
+    <meta name="viewport" content="width=device-width" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -69,6 +70,19 @@
           </ul>
         </div>
         <div class='menu_footer'></div>
+
+        <div id='small_screen'>
+          <div class="menu_top"></div>
+          <div class="menu_center">
+            <h2>Ресурсы клана</h2>
+            <ul>
+              <li><a href="#">Примерочная</a></li>
+              <li><a href="#">Таймер заклятий</a></li>
+              <li id='menu_experience_calc'><%= link_to "Калькулятор опыта", experience_calc_path %></li>
+            </ul>
+          </div>
+          <div class='menu_footer'></div>
+        </div>
 
       </div>
       <div id='news'>

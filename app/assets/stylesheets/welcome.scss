@@ -295,4 +295,53 @@ span.blue {
   margin-left: 10px;
 }
 
+#small_screen {
+  display: none;
+}
 
+@media screen and (max-width: 1024px) {
+  #right_menu {
+    display: none;
+  }
+
+  .full_page {
+    background-size: cover;
+    grid-template-columns: 30% 70%;
+  }
+
+  #news {
+    margin: 160px auto;
+    padding-top: 85px;
+    width: 98%;
+  }
+
+  .menu {
+    margin-top: 160px;
+  }
+
+  .menu_center ul {
+    padding-left: 30px;
+  }
+
+  .news_footer {
+    display: inline-block;
+  }
+
+  .comment,
+  .views {
+    display: inline-block;
+  }
+
+  #small_screen {
+    display: block;
+  }
+
+  #left_menu {
+    margin-left: 10px;
+  }
+
+  .news_footer {
+    margin-bottom: 20px;
+  }
+
+}
