@@ -1,5 +1,6 @@
 .full_page {
   background: url('main.png') fixed center top;
+  background-size: cover;
   width: 100%;
   display: grid;
   grid-template-rows: 100%;
@@ -308,7 +309,6 @@ span.blue {
   }
 
   .full_page {
-    background-size: cover;
     grid-template-columns: 30% 70%;
   }
 
