@@ -187,6 +187,7 @@ div#sign_in input{
 div#sign_in input:hover {
   background-color: #fed79b;
   color:black;
+  border: 1px solid black;
 }
 
 div#sign_up {
@@ -206,6 +207,7 @@ div#sign_up input{
 div#sign_up input:hover {
   background-color: #fed79b;
   color:black;
+  border: 1px solid black;
 }
 
 .reset_password_form input:focus,

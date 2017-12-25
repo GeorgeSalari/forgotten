@@ -43,12 +43,22 @@
 .submit_button button a {
   text-decoration: none;
   color: white;
+  transition: all 1s;
+  display: inline-block;
 }
 
-div.submit_button input:hover {
+div.submit_button input:hover,
+.submit_button button:hover {
   background-color: #fed79b;
   color:black;
+  border: 1px solid black;
 }
+
+.submit_button button a:hover {
+  color:black;
+  transform: rotate(360deg);
+}
+
 
 div.submit_button input:focus,
 #user_profile_photo:focus,
