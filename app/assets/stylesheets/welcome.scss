@@ -143,6 +143,7 @@ p.news_footer_content {
 .menu_center ul li a{
   text-decoration: none;
   color: black;
+  transition: all 1s;
 }
 
 .menu_center ul li a:hover {
@@ -179,6 +180,7 @@ div#sign_in input{
   width: 40%;
   height: 25px;
   color: white;
+  transition: all 1s;
 }
 
 div#sign_in input:hover {
@@ -197,6 +199,7 @@ div#sign_up input{
   width: 40%;
   height: 25px;
   color: white;
+  transition: all 1s;
 }
 
 div#sign_up input:hover {
