@@ -3,52 +3,49 @@
   <h1>
     Состав клана
   </h1>
-  <% if logged_in? %>
-    <h3>Подсказки:</h3>
-    <p id="hint">
-      *Нажмите на нужный отдел для вывода людей состоящих в нем<br/>
-      *Нажмите на наименование столбца для сортировки по его данным
-    </p>
-    <div>
-      <%= form_tag({:controller => "clan_members", :action => "index"}, :method => "get", :id => "get_department") do %>
-        <%= hidden_field_tag :department, value: nil %>
-      <% end %>
-      <%= form_tag({:controller => "clan_members", :action => "index"}, :method => "get", :id => "order_members_form") do %>
-        <%= hidden_field_tag :order_members, value: nil %>
-      <% end %>
-      <p><a href="#" id="all" class="divisions">Весь состав</a>|<a href="#" id='leadership' class="divisions">Руководство</a>|<a href="#" id="council" class="divisions">Совет</a>|<a href="#" id='programmer' class="divisions">Отдел программирования</a>|<a href="#" id="information" class="divisions">Информационный отдел</a>|<a href="#" id="combat" class="divisions">Боевой отдел</a></p>
-    </div>
-    <% i = 1 %>
-    <div class='one_clan_member'>
-      <div class='one_clan_member_top' >№</div>
-      <div class='one_clan_member_top' id="member_race">Раса</div>
-      <div class='one_clan_member_top' id="member_nick_name">Ник</div>
-      <div class='one_clan_member_top' id="member_level">Уровень</div>
-      <div class='one_clan_member_top' id="member_post">Должность</div>
-      <div class='one_clan_member_top' id="member_city">Город</div>
-      <div class='one_clan_member_top' id="member_name">Имя</div>
-      <% @clan_members.each do |clan_member| %>
-
-          <div class='one_clan_member_content' ><%= i %></div>
-          <div class='one_clan_member_content' ><%= clan_member.race %></div>
-          <div class='one_clan_member_content' ><%= link_to clan_member.nick_name, clan_member.player_link %></div>
-          <div class='one_clan_member_content' ><%= clan_member.player_level %></div>
-          <div class='one_clan_member_content' ><%= clan_member.player_post if clan_member.player_post %></div>
-          <div class='one_clan_member_content' ><%= clan_member.city if clan_member.city %></div>
-          <div class='one_clan_member_content' ><%= clan_member.name if clan_member.name %></div>
-
-        <% i += 1 %>
-      <% end %>
-    </div>
-    <% if current_user.admin? || current_user.superadmin? %>
-      <div class="submit_button">
-        <button><%= link_to "Добавить игрока", new_clan_member_path %></button>
-        <button><%= link_to "Изменить состав", admining_members_path %></button>
-      </div>
+  <h3>Подсказки:</h3>
+  <p id="hint">
+    *Нажмите на нужный отдел для вывода людей состоящих в нем<br/>
+    *Нажмите на наименование столбца для сортировки по его данным
+  </p>
+  <div>
+    <%= form_tag({:controller => "clan_members", :action => "index"}, :method => "get", :id => "get_department") do %>
+      <%= hidden_field_tag :department, value: nil %>
     <% end %>
-  <% else %>
-    <p>Что бы увидеть состав, вам необходимо зайти либо зарегистрироваться!</p>
+    <%= form_tag({:controller => "clan_members", :action => "index"}, :method => "get", :id => "order_members_form") do %>
+      <%= hidden_field_tag :order_members, value: nil %>
+    <% end %>
+    <p><a href="#" id="all" class="divisions">Весь состав</a>|<a href="#" id='leadership' class="divisions">Руководство</a>|<a href="#" id="council" class="divisions">Совет</a>|<a href="#" id='programmer' class="divisions">Отдел программирования</a>|<a href="#" id="information" class="divisions">Информационный отдел</a>|<a href="#" id="combat" class="divisions">Боевой отдел</a></p>
+  </div>
+  <% i = 1 %>
+  <div class='one_clan_member'>
+    <div class='one_clan_member_top' >№</div>
+    <div class='one_clan_member_top' id="member_race">Раса</div>
+    <div class='one_clan_member_top' id="member_nick_name">Ник</div>
+    <div class='one_clan_member_top' id="member_level">Уровень</div>
+    <div class='one_clan_member_top' id="member_post">Должность</div>
+    <div class='one_clan_member_top' id="member_city">Город</div>
+    <div class='one_clan_member_top' id="member_name">Имя</div>
+    <% @clan_members.each do |clan_member| %>
+
+        <div class='one_clan_member_content' ><%= i %></div>
+        <div class='one_clan_member_content' ><%= clan_member.race %></div>
+        <div class='one_clan_member_content' ><%= link_to clan_member.nick_name, clan_member.player_link %></div>
+        <div class='one_clan_member_content' ><%= clan_member.player_level %></div>
+        <div class='one_clan_member_content' ><%= clan_member.player_post if clan_member.player_post %></div>
+        <div class='one_clan_member_content' ><%= clan_member.city if clan_member.city %></div>
+        <div class='one_clan_member_content' ><%= clan_member.name if clan_member.name %></div>
+
+      <% i += 1 %>
+    <% end %>
+  </div>
+  <% if current_user.admin? || current_user.superadmin? %>
+    <div class="submit_button">
+      <button><%= link_to "Добавить игрока", new_clan_member_path %></button>
+      <button><%= link_to "Изменить состав", admining_members_path %></button>
+    </div>
   <% end %>
+
   <div class='separator'></div>
 
 </div>
