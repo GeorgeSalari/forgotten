@@ -15,7 +15,7 @@ class NewsCommentsController < ApplicationController
     if NewsComment.exists?(params[:id])
       comment = NewsComment.find(params[:id])
       listing = Listing.find(comment.listing_id)
-      if comment.user_id == current_user.id
+      if (comment.user_id == current_user.id || current_user.admin? || current_user.superadmin?)
         comment.destroy
         flash[:notice] = "Комментарий успешно удален!"
         redirect_to listing_path(listing)
