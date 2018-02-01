@@ -39,11 +39,13 @@
       <% i += 1 %>
     <% end %>
   </div>
-  <% if current_user.admin? || current_user.superadmin? %>
-    <div class="submit_button">
-      <button><%= link_to "Добавить игрока", new_clan_member_path %></button>
-      <button><%= link_to "Изменить состав", admining_members_path %></button>
-    </div>
+  <% if logged_in? %>
+    <% if current_user.admin? || current_user.superadmin? %>
+      <div class="submit_button">
+        <button><%= link_to "Добавить игрока", new_clan_member_path %></button>
+        <button><%= link_to "Изменить состав", admining_members_path %></button>
+      </div>
+    <% end %>
   <% end %>
 
   <div class='separator'></div>
