@@ -56,11 +56,32 @@ class UsersController < ApplicationController
 
   end
 
-  def email_for_new_password
+  def resend_email_confirmation
+
+  end
+
+  def repeat_email_confirmation
     if User.exists?(email: params[:email])
       user = User.find_by(email: params[:email])
       user.set_password_token
       UserMailer.reset_user_password(user).deliver_now
+    else
+      flash[:error] = "Нет такой почты в базе данных!"
+      redirect_to '/reset_password'
+    end
+  end
+
+  def email_for_new_password
+    if User.exists?(email: params[:email])
+      user = User.find_by(email: params[:email])
+      if user.email_confirmation
+        flash[:notice] = "Привет #{user.nick_name}! Ваша почта уже активирована!"
+        redirect_to "/"
+      else
+        UserMailer.registration_confirmation(@user).deliver
+        flash[:notice] = "Привет #{user.nick_name}! На вашу почту было отправленно повторное письмо!"
+        redirect_to "/"
+      end
     else
       flash[:error] = "Нет такой почты в базе данных!"
       redirect_to '/reset_password'
