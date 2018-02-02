@@ -33,5 +33,7 @@ Rails.application.routes.draw do
   get 'please_log_in' => 'forum#please_log_in'
   get 'no_access' => "forum#no_access"
   get "reset_password" => "users#reset_password"
+  get "resend_email_confirmation" => "users#resend_email_confirmation"
   post 'email_for_new_password' => "users#email_for_new_password"
+  post 'repeat_email_confirmation' => "users#repeat_email_confirmation"
 end
