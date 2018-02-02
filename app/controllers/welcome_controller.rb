@@ -12,10 +12,6 @@ class WelcomeController < ApplicationController
 
   end
 
-  def google3644afdf7cfa2db2
-
-  end
-
   def check_experience
     if params[:current_experience].to_i > 0
       @result = PlayerLevel.check_gived_experience(params[:current_experience], params[:desired_level])
