@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   before_create :confirmation_token
-  before_update :password_token_empty
   has_many :listings, dependent: :destroy
   has_many :news_comments, dependent: :destroy
   mount_uploader :profile_photo, UserAvatarUploader
@@ -72,6 +71,10 @@ class User < ApplicationRecord
     User.password_token(self)
   end
 
+  def set_passwroed_token_empty
+    User.password_token_empty(self)
+  end
+
   private
 
   def confirmation_token
@@ -82,13 +85,15 @@ class User < ApplicationRecord
 
   def self.password_token(user)
     if user.reset_password_token.empty?
-      user.update(reset_password_token: SecureRandom.urlsafe_base64.to_s)
+      user.reset_password_token = SecureRandom.urlsafe_base64.to_s
+      user.save
     end
   end
 
-  def password_token_empty
-    unless self.reset_password_token.empty?
-      self.reset_password_token = ""
+  def self.password_token_empty(user)
+    unless user.reset_password_token.empty?
+      user.reset_password_token = ""
+      user.save
     end
   end
 end
