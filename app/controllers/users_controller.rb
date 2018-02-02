@@ -67,7 +67,7 @@ class UsersController < ApplicationController
         flash[:notice] = "Привет #{user.nick_name}! Ваша почта уже активирована!"
         redirect_to "/"
       else
-        UserMailer.registration_confirmation(@user).deliver
+        UserMailer.registration_confirmation(user).deliver
         flash[:notice] = "Привет #{user.nick_name}! На вашу почту было отправленно повторное письмо!"
         redirect_to "/"
       end
