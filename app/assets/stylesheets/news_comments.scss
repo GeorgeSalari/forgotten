@@ -24,8 +24,11 @@
 
 .one_news_comment {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 25% 75%;
+  -ms-grid-columns: 25% 75%;
   grid-template-rows: 100%;
+  -ms-grid-rows: 100%;
   border-bottom: 1px solid #8f4025;
 }
 

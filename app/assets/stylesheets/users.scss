@@ -5,8 +5,11 @@
 
 .new_user_form_part {
   display: grid;
+  display: -ms-grid;
   grid-template-rows: 100%;
+  -ms-grid-rows: 100%;
   grid-template-columns: 35% 65%;
+  -ms-grid-columns: 35% 65%;
 }
 
 .new_user_form_part p {
@@ -89,8 +92,11 @@ span {
 /*show page*/
 #user_profile {
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 50% 50%;
+  -ms-grid-columns: 50% 50%;
   grid-template-rows: 16% 16% repeat(4, 17%);
+  -ms-grid-rows: 16% 16% 17% 17% 17% 17%;
 }
 
 .show_profile_photo {
