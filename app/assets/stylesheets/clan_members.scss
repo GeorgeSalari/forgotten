@@ -17,7 +17,9 @@
 .one_clan_member {
   width: 95%;
   margin: 0 auto;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 6% 9% 20% 10% 18% 18% 18%;
   grid-template-columns: 6% 9% 20% 10% 18% 18% 18%;
   text-align: center;
 }
@@ -41,7 +43,9 @@
   width: 85%;
   margin: 0 auto;
   display: grid;
+  display: -ms-grid;
   grid-template-columns: 10% 30% 60%;
+  -ms-grid-columns: 10% 30% 60%;
   text-align: center;
 }
 
