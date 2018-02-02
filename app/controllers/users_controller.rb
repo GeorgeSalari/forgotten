@@ -67,7 +67,7 @@ class UsersController < ApplicationController
       UserMailer.reset_user_password(user).deliver_now
     else
       flash[:error] = "Нет такой почты в базе данных!"
-      redirect_to '/reset_password'
+      render '/resend_email_confirmation'
     end
   end
 
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
       end
     else
       flash[:error] = "Нет такой почты в базе данных!"
-      redirect_to '/reset_password'
+      render '/reset_password'
     end
   end
 
