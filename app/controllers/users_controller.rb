@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user.nil? || @user.id == current_user.id || current_user.superadmin?
       if @user.update(user_params.reject{|_, v| v.blank?})
+        @user.set_passwroed_token_empty
         flash[:notice] = "Вы отредактировали свой профиль!"
         redirect_to user_path(@user)
       else
