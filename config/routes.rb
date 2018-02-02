@@ -34,4 +34,5 @@ Rails.application.routes.draw do
   get 'no_access' => "forum#no_access"
   get "reset_password" => "users#reset_password"
   post 'email_for_new_password' => "users#email_for_new_password"
+  get "google3644afdf7cfa2db2" => "welcome#google3644afdf7cfa2db2"
 end
