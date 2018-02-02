@@ -1,6 +1,6 @@
 <div class="news_content">
   <p>На вашу почту будет отправленна повторное письмо для подтверждения регистрации.</p>
-  <%= form_tag('/email_for_new_password') do -%>
+  <%= form_tag('/repeat_email_confirmation') do -%>
     <div class="reset_password_form">
       <%= label_tag "Введите почту: " %>
       <%= email_field_tag :email %>

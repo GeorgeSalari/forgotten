@@ -63,17 +63,6 @@ class UsersController < ApplicationController
   def repeat_email_confirmation
     if User.exists?(email: params[:email])
       user = User.find_by(email: params[:email])
-      user.set_password_token
-      UserMailer.reset_user_password(user).deliver_now
-    else
-      flash[:error] = "Нет такой почты в базе данных!"
-      render '/resend_email_confirmation'
-    end
-  end
-
-  def email_for_new_password
-    if User.exists?(email: params[:email])
-      user = User.find_by(email: params[:email])
       if user.email_confirmation
         flash[:notice] = "Привет #{user.nick_name}! Ваша почта уже активирована!"
         redirect_to "/"
@@ -84,7 +73,18 @@ class UsersController < ApplicationController
       end
     else
       flash[:error] = "Нет такой почты в базе данных!"
-      render '/reset_password'
+      render 'users/resend_email_confirmation'
+    end
+  end
+
+  def email_for_new_password
+    if User.exists?(email: params[:email])
+      user = User.find_by(email: params[:email])
+      user.set_password_token
+      UserMailer.reset_user_password(user).deliver_now
+    else
+      flash[:error] = "Нет такой почты в базе данных!"
+      render 'users/reset_password'
     end
   end
 
