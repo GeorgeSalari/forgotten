@@ -28,7 +28,13 @@
   <div class="all_comments">
     <% @comments.each do |comment| %>
       <div class="one_news_comment">
-        <div class='profile_image'><%= image_tag(comment.user.profile_photo) %></div>
+        <div class='profile_image'>
+          <% if comment.user.profile_photo.blank? %>
+            <%= image_tag("default_avatar.jpg") %>
+          <% else %>
+            <%= image_tag(comment.user.profile_photo) %>
+          <% end %>
+        </div>
         <div>
           <p id="owner_comment_<%=comment.id%>" class="news_comment_owner"><%= link_to comment.user.nick_name, comment.user.player_link %> написал <i><%= russian_date(comment.created_at) %></i></p>
           <div>
@@ -101,4 +107,8 @@
     $("#news_comment_quote_content").val(quote_content);
     $("#add_comment_form textarea").text('цитата\n');
   })
+
+  $("#right_menu").addClass('hidden');
+  $(".full_page").css( "grid-template-columns", "20% 80%" );
+  $("#newsFooter").addClass('hidden');
 </script>
