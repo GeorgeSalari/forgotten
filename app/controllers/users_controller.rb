@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:notice] = "Добро пожаловать! Вы успушно активировали свой аккаунт!"
+      flash[:notice] = "Добро пожаловать! Вы успешно активировали свой аккаунт!"
       redirect_to '/'
     else
       flash[:error] = "Такого пользователя нет!"
