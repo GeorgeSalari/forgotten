@@ -36,6 +36,8 @@ gem "fog-aws"
 gem "figaro"
 gem "ckeditor"
 
+gem 'rails_emoji_picker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

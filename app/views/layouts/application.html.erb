@@ -140,6 +140,14 @@
             $(this).children().removeClass('active_menu');
           });
           $('#menu_add_news').children().addClass('active_menu');
+        } else if (window.location.href.indexOf("listings/") > -1) {
+          all_li.each(function() {
+            $(this).children().removeClass('active_menu');
+          });
+          $("#right_menu").addClass('hidden');
+          $(".full_page").css( "grid-template-columns", "20% 80%" );
+          $("#newsFooter").addClass('hidden');
+          $("#news").css("padding-top", "160px");
         } else if (window.location.href.indexOf("clan_members") > -1) {
           all_li.each(function() {
             $(this).children().removeClass('active_menu');

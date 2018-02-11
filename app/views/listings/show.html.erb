@@ -84,7 +84,9 @@
         <%= f.hidden_field :quote_content, value: nil %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :listing_id, value: @listing.id %>
-        <%= f.text_area :content, placeholder: "Введите ваш комментарий" %>
+        <p class="emoji-picker-container">
+          <%= f.text_area :content, placeholder: "Введите ваш комментарий", data: { emojiable: true } %>
+        </p>
         <div id="add_comment"><%= f.submit "Добавить" %></div>
       <% end %>
     </div>
@@ -108,8 +110,4 @@
     $("#add_comment_form textarea").text('цитата\n');
   })
 
-  $("#right_menu").addClass('hidden');
-  $(".full_page").css( "grid-template-columns", "20% 80%" );
-  $("#newsFooter").addClass('hidden');
-  $("#news").css("padding-top", "160px");
 </script>

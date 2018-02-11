@@ -6,7 +6,7 @@
     </h1>
     <p class="created_at"><%= russian_date(listing.created_at) %></p>
     <%= raw listing.short_content %>
-    <p><%= link_to "Читать далее ", listing_path(listing) %></p>
+    <p><%= link_to "Читать далее ", listing_path(listing), :"data-turbolinks" => "false" %></p>
 
     <div class='news_footer'>
       <div class='author'>
