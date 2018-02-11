@@ -38,7 +38,7 @@ class NewsCommentsController < ApplicationController
         flash[:notice] = "Комментарий был изменен успешно!"
         redirect_to listing_path(listing)
       elsif current_user.admin? || current_user.superadmin?
-        @comment.update(content: comment_params.content)
+        @comment.update(content: comment_params["content"])
       else
         flash[:error] = "Это не ваш комментарий! Вы не можете его изменить!"
         redirect_to listing_path(listing)
