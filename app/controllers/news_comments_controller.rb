@@ -33,7 +33,7 @@ class NewsCommentsController < ApplicationController
     if NewsComment.exists?(params[:id])
       @comment = NewsComment.find(params[:id])
       listing = Listing.find(@comment.listing_id)
-      if (@comment.user_id == params[:news_comment][:user_id].to_i || || current_user.admin? || current_user.superadmin?)
+      if (@comment.user_id == params[:news_comment][:user_id].to_i || current_user.admin? || current_user.superadmin?)
         @comment.update(comment_params.reject{|_, v| v.blank?})
         flash[:notice] = "Комментарий был изменен успешно!"
         redirect_to listing_path(listing)
