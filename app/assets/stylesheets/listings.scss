@@ -39,3 +39,28 @@ div.news_content h1 a {
   width: 100%;
   text-align: center;
 }
+
+p.emoji-picker-container{
+  width: 75%;
+  height: 80px;
+  margin: 0;
+}
+
+p.emoji-picker-container div.emoji-wysiwyg-editor{
+  background-color: white;
+  height: 100%;
+}
+
+div.emoji-menu{
+  top: -90px !important;
+  left: 47px !important;
+}
+
+p.emoji-picker-container i {
+  right: 10px;
+  top: 10px;
+}
+
+.emoji-picker-icon {
+  font-size: 30px !important;
+}
