@@ -1,4 +1,4 @@
 Привет <%= @user.full_name %>.
 
-Спасибо за регистрацию! Что бы подтвердить регистрацию, нажмите на ссылку что ниже:
-<%= confirm_email_user_url(@user.confirm_token) %>
+Спасибо за регистрацию! Что бы подтвердить регистрацию, нажмите на ссылку что ниже:<br>
+<a href='<%= "http://www.forgottenbygod.ru/users/#{@user.confirm_token}/confirm_email" %>'>Подтверждаю свою почту</a>
