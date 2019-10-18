@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require rails_emoji_picker
-//= require ckeditor/init
 //= require_tree .
 
 $(document).ready(function(){
